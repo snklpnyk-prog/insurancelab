@@ -1,0 +1,297 @@
+Build a premium, modern, fully responsive, SEO-optimized insurance & risk advisory website that matches exactly the same structure, layout flow, UI sections, spacing, and hierarchy as the screenshot I provided.
+
+⚠️ CRITICAL INSTRUCTION
+
+❌ Do NOT skip, remove, merge, or redesign any section from the screenshot
+
+✅ Follow the same section order from top to bottom
+
+✅ Match layout proportions, grids, card styles, CTA placement, and content flow
+
+❌ Do NOT invent new sections
+
+The final website must visually and structurally resemble the screenshot 1:1, only changing branding and content.
+
+🎨 Brand Identity (Strictly Follow)
+Primary Color
+
+#020a7f (Deep Royal Trust Blue)
+
+Secondary Color
+
+#56C222 (Fresh Action Green)
+
+Usage Rules
+
+Primary color for:
+
+Header
+
+CTAs
+
+Icons
+
+Important headings
+
+Secondary color for:
+
+Buttons
+
+Highlights
+
+Hover states
+
+Badges & accents
+
+Gradients
+
+Use modern, subtle gradients:
+
+#020a7f → darker navy
+
+Green (#56C222) only as accent
+
+Avoid flashy or neon effects
+
+🧱 Website Structure (DO NOT CHANGE)
+
+Create ALL sections exactly like the screenshot, including:
+
+Sticky Header / Navbar
+
+Logo (left)
+
+Navigation menu
+
+CTA button
+
+Mobile hamburger menu
+
+Hero Section
+
+Full-width layout
+
+HD background image
+
+Headline, sub-headline
+
+CTA buttons
+
+Trust indicators / stats
+
+About / Introduction Section
+
+Image + text layout
+
+Professional corporate tone
+
+Insurance Services Grid
+
+Card-based services
+
+Icons + titles + descriptions
+
+Hover animations
+
+Why Choose Us
+
+Benefits list
+
+Supporting image
+
+Trust messaging
+
+Process / How It Works
+
+Step-by-step flow
+
+Icons & connectors
+
+Key Features / Highlights
+
+Stats, counters, feature icons
+
+Strong CTA Banner
+
+Bold background
+
+Quote / consultation CTA
+
+Pricing / Plans
+
+3 pricing cards
+
+Highlighted popular plan
+
+Support / Help Section
+
+24/7 assistance
+
+Trust visuals
+
+FAQ Section
+
+Accordion layout
+
+SEO-friendly content
+
+Testimonials
+
+Client reviews
+
+Cards or slider
+
+Blog / News Section
+
+Blog cards
+
+Image + title + excerpt
+
+Footer
+
+Company info
+
+Services links
+
+Contact details
+
+Social media icons
+
+⚠️ All sections must appear exactly in this order
+
+📄 Content Instructions
+
+Use ONLY the content from the Insurance Lab document I provided, including:
+
+Company name: Insurance Lab
+
+Tagline: Your Safety, Our Science
+
+Founder: Anshul Purohit
+
+B2C & B2B services
+
+Claims advocacy
+
+Investments & loans
+
+Vision, mission, philosophy
+
+Address, phone, email
+
+❌ Do NOT fabricate business information
+✅ Rewrite content only for clarity & web readability
+
+🖼️ Images & Assets
+
+Use HD, professional stock images
+
+Themes:
+
+Insurance consultation
+
+Families
+
+Corporate professionals
+
+Fully optimized & responsive
+
+Lazy loading enabled
+
+📱 Responsiveness (Mandatory)
+
+Fully responsive on:
+
+Mobile
+
+Tablet
+
+Laptop
+
+Large screens
+
+Mobile-first approach
+
+No overflow or layout breaks
+
+Touch-friendly buttons
+
+Optimized typography scaling
+
+🚀 SEO & Google Ranking (VERY IMPORTANT)
+
+Implement full SEO best practices:
+
+On-Page SEO
+
+Semantic HTML5
+
+Proper H1–H6 hierarchy
+
+SEO-friendly URLs
+
+Optimized meta title & description
+
+Image alt attributes
+
+Fast loading performance
+
+Technical SEO (MANDATORY)
+
+Create and configure:
+
+✅ robots.txt
+
+Allow search engines
+
+Block unnecessary paths
+
+✅ .htaccess
+
+Enable compression
+
+Browser caching
+
+Clean URL rewriting
+
+HTTPS redirection
+
+SEO-friendly headers
+
+✅ Additional
+
+XML sitemap
+
+Schema markup (Organization + FAQ)
+
+Mobile SEO optimization
+
+✨ UI / UX Requirements
+
+Clean corporate design
+
+Rounded modern cards
+
+Smooth scroll animations
+
+Subtle hover effects
+
+Professional insurance-grade UI
+
+High trust & credibility visuals
+
+🧠 Final Instruction to Replit
+
+Build the website exactly like the screenshot in structure and flow, while applying:
+
+My brand colors
+
+My business content
+
+Modern insurance-focused UI
+
+Full responsiveness
+
+Full SEO + technical optimization
+
+This website must be production-ready, host-ready, and Google-ranking optimized.
