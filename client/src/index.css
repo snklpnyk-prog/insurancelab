@@ -42,6 +42,9 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
+
+  --font-sans: 'Open Sans', system-ui, sans-serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
 }
 
 /* LIGHT MODE */
@@ -79,9 +82,6 @@
   --ring: 236 98% 25%;
 
   --radius: 0.75rem;
-
-  --font-sans: 'Open Sans', system-ui, sans-serif;
-  --font-heading: 'Montserrat', system-ui, sans-serif;
 }
 
 .dark {
