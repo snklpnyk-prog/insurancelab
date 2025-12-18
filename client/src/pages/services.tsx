@@ -4,6 +4,12 @@ import { Link } from "wouter";
 import { Home as HomeIcon, Activity, Briefcase, Car, Users, Zap, TrendingUp, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@assets/Insurancelablogo-removebg-preview_1766038794097.png";
+import homeImg from "@assets/generated_images/home_insurance_concept.png";
+import lifeImg from "@assets/generated_images/life_insurance_family.png";
+import businessImg from "@assets/generated_images/business_insurance_meeting.png";
+import carImg from "@assets/generated_images/car_insurance_protection.png";
+import personalImg from "@assets/generated_images/personal_health_insurance.png";
+import investImg from "@assets/generated_images/investment_and_loans.png";
 
 const whatsappUrl = "https://wa.me/917303177489?text=Hello%20Insurance%20Lab,%20I%20would%20like%20to%20know%20more%20about%20your%20services.";
 
@@ -14,6 +20,7 @@ const services = [
     title: "Home Insurance",
     shortDesc: "Protect your sanctuary",
     fullDesc: "Comprehensive home insurance coverage protecting your property against damage, theft, natural disasters, and more.",
+    image: homeImg,
     features: ["Property damage coverage", "Theft & burglary protection", "Liability coverage", "Personal belongings insurance"]
   },
   {
@@ -22,6 +29,7 @@ const services = [
     title: "Life Insurance",
     shortDesc: "Secure your family's future",
     fullDesc: "Flexible life insurance plans ensuring your loved ones are financially secure, with term and whole life options.",
+    image: lifeImg,
     features: ["Term life insurance", "Whole life insurance", "Endowment plans", "Child education plans"]
   },
   {
@@ -30,6 +38,7 @@ const services = [
     title: "Business Insurance",
     shortDesc: "Safeguard your enterprise",
     fullDesc: "Enterprise-level insurance solutions for businesses of all sizes, from startups to large corporations.",
+    image: businessImg,
     features: ["General liability", "Professional indemnity", "Employee benefits", "Property protection"]
   },
   {
@@ -38,6 +47,7 @@ const services = [
     title: "Car Insurance",
     shortDesc: "Drive with confidence",
     fullDesc: "Comprehensive auto insurance coverage for all vehicles, including third-party liability and own damage.",
+    image: carImg,
     features: ["Liability coverage", "Own damage coverage", "Personal accident", "Add-on covers"]
   },
   {
@@ -46,6 +56,7 @@ const services = [
     title: "Personal Insurance",
     shortDesc: "Individual protection",
     fullDesc: "Comprehensive personal insurance covering health, travel, accidents, and critical illnesses.",
+    image: personalImg,
     features: ["Health insurance", "Travel insurance", "Personal accident", "Critical illness cover"]
   },
   {
@@ -54,6 +65,7 @@ const services = [
     title: "Investments & Loans",
     shortDesc: "Grow your wealth",
     fullDesc: "Expert investment advisory and loan assistance services to help you build and manage your financial portfolio.",
+    image: investImg,
     features: ["Mutual funds", "Crypto advisory", "Domain investing", "Loan assistance"]
   }
 ];
@@ -121,16 +133,21 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 onClick={() => setSelectedService(selectedService === service.id ? null : service.id)}
-                className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border-b-4 border-transparent hover:border-secondary"
+                className="bg-gradient-to-br from-white to-slate-50 rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border-b-4 border-transparent hover:border-secondary overflow-hidden"
               >
-                <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6">
-                  <service.icon size={32} />
+                <div className="h-48 overflow-hidden">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-2">{service.title}</h3>
-                <p className="text-slate-600 mb-4">{service.shortDesc}</p>
-                <a href="#" className="flex items-center gap-2 text-secondary font-bold text-sm">
-                  Learn More <ArrowRight size={16} />
-                </a>
+                <div className="p-8">
+                  <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6">
+                    <service.icon size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-2">{service.title}</h3>
+                  <p className="text-slate-600 mb-4">{service.shortDesc}</p>
+                  <a href="#" className="flex items-center gap-2 text-secondary font-bold text-sm">
+                    Learn More <ArrowRight size={16} />
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>

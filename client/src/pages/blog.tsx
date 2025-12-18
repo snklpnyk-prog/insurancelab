@@ -5,8 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import logo from "@assets/Insurancelablogo-removebg-preview_1766038794097.png";
 import blog1 from "@assets/generated_images/home_insurance_concept.png";
-import blog2 from "@assets/generated_images/business_growth_analysis.png";
-import blog3 from "@assets/generated_images/car_insurance_assistance.png";
+import blog2 from "@assets/generated_images/business_insurance_meeting.png";
+import blog3 from "@assets/generated_images/car_insurance_protection.png";
+import blog4 from "@assets/generated_images/life_insurance_family.png";
+import blog5 from "@assets/generated_images/car_insurance_mistakes.png";
+import blog6 from "@assets/generated_images/personal_health_insurance.png";
 
 const whatsappUrl = "https://wa.me/917303177489?text=Hello%20Insurance%20Lab,%20I%20would%20like%20to%20know%20more%20about%20your%20services.";
 
@@ -47,7 +50,7 @@ const blogPosts = [
     date: "Dec 01, 2025",
     author: "Admin",
     category: "Life Insurance",
-    image: blog1,
+    image: blog4,
     excerpt: "Comparing term and whole life insurance to help you make the right choice.",
     content: "The choice between term and whole life insurance can be confusing. Both have their pros and cons. Let's break down the differences to help you decide..."
   },
@@ -57,7 +60,7 @@ const blogPosts = [
     date: "Nov 28, 2025",
     author: "Admin",
     category: "Car Insurance",
-    image: blog2,
+    image: blog5,
     excerpt: "Common mistakes that cost drivers thousands in unnecessary expenses.",
     content: "Many drivers make costly mistakes when purchasing car insurance. Avoid these five common pitfalls to ensure you get the best coverage at the best price..."
   },
@@ -67,7 +70,7 @@ const blogPosts = [
     date: "Nov 25, 2025",
     author: "Admin",
     category: "General",
-    image: blog3,
+    image: blog6,
     excerpt: "Why reviewing your insurance policies annually is crucial for optimal protection.",
     content: "Your insurance needs change over time. Annual policy reviews ensure you have the right coverage as your life circumstances evolve..."
   }
@@ -189,12 +192,13 @@ export default function Blog() {
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
-                    <a
-                      href="#"
-                      className="inline-flex items-center gap-1 text-sm font-bold text-secondary hover:underline"
-                    >
-                      Read More <ArrowRight size={14} />
-                    </a>
+                    <Link href={`/blog/${post.id}`}>
+                      <a
+                        className="inline-flex items-center gap-1 text-sm font-bold text-secondary hover:underline"
+                      >
+                        Read More <ArrowRight size={14} />
+                      </a>
+                    </Link>
                     <div className="flex gap-2">
                       <button
                         onClick={() => shareOnSocial("facebook", post.title)}
