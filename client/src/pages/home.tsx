@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Menu,
-  X,
   Check,
   Shield,
   Users,
@@ -25,6 +23,9 @@ import {
   TrendingUp,
   CheckCircle,
   Share2,
+  Award,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,6 +36,8 @@ import {
 } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 // Assets
 import heroBg from "@assets/generated_images/insurance_consultation_with_happy_family.png";
@@ -44,7 +47,10 @@ import ctaBg from "@assets/generated_images/abstract_royal_blue_background.png";
 import blog1 from "@assets/generated_images/home_insurance_concept.png";
 import blog2 from "@assets/generated_images/business_growth_analysis.png";
 import blog3 from "@assets/generated_images/car_insurance_assistance.png";
-import logo from "@assets/Insurancelablogo-removebg-preview_1766038794097.png";
+import serviceHome from "@assets/generated_images/luxury_home_interior_design.png";
+import serviceHealth from "@assets/generated_images/professional_health_insurance_concept.png";
+import serviceBusiness from "@assets/generated_images/modern_business_office_building.png";
+import serviceCar from "@assets/generated_images/premium_luxury_car_photography.png";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -65,17 +71,8 @@ const whatsappNumber = "+917303177489";
 const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^\d]/g, "")}?text=Hello%20Insurance%20Lab,%20I%20would%20like%20to%20know%20more%20about%20your%20services.`;
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [blogSlideIndex, setBlogSlideIndex] = useState(0);
   const [, setLocation] = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const shareOnSocial = (platform: string, title: string, url: string) => {
     let shareUrl = "";
@@ -98,82 +95,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen font-sans text-slate-600">
-      {/* Sticky Header */}
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md py-3"
-            : "bg-white py-3",
-        )}
-      >
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-2 cursor-pointer">
-              <img src={logo} alt="Insurance Lab" className="h-10 w-auto" />
-            </a>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="/" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Home</a>
-            <a href="/about" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">About</a>
-            <a href="/services" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Services</a>
-            <a href="/blog" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Blog</a>
-            <a href="/contact" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Contact</a>
-          </nav>
-
-          <div className="hidden md:flex items-center gap-4">
-            <Button
-              className="bg-secondary hover:bg-secondary/90 text-white font-bold px-6 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
-              onClick={() => window.open(whatsappUrl, "_blank")}
-            >
-              GET A QUOTE
-            </Button>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-secondary"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X size={28} />
-            ) : (
-              <Menu
-                size={28}
-                className={isScrolled ? "text-primary" : "text-white"}
-              />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t absolute w-full left-0 top-full shadow-xl"
-            >
-              <div className="flex flex-col p-4 gap-4">
-                <a href="/" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Home</a>
-                <a href="/about" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>About</a>
-                <a href="/services" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Services</a>
-                <a href="/blog" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Blog</a>
-                <a href="/contact" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-                <Button
-                  className="bg-secondary text-white w-full mt-2 cursor-pointer"
-                  onClick={() => window.open(whatsappUrl, "_blank")}
-                >
-                  GET A QUOTE
-                </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+      <Header isTransparent={true} />
 
       {/* Hero Section */}
       <section
@@ -376,21 +298,25 @@ export default function Home() {
                 icon: HomeIcon,
                 title: "Home Insurance",
                 desc: "Protect your sanctuary with comprehensive coverage against damage and theft.",
+                image: serviceHome,
               },
               {
                 icon: Activity,
                 title: "Life Insurance",
                 desc: "Secure your family's financial future with our flexible term and whole life plans.",
+                image: serviceHealth,
               },
               {
                 icon: Briefcase,
                 title: "Business Insurance",
                 desc: "Safeguard your enterprise with liability, property, and employee coverage.",
+                image: serviceBusiness,
               },
               {
                 icon: Car,
                 title: "Car Insurance",
                 desc: "Drive with confidence knowing you're protected against accidents and liabilities.",
+                image: serviceCar,
               },
             ].map((service, index) => (
               <motion.div
@@ -399,26 +325,35 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border-b-4 border-transparent hover:border-secondary relative overflow-hidden"
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border-b-4 border-transparent hover:border-secondary"
+                data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <service.icon size={100} />
+                <div className="h-48 overflow-hidden relative">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    data-testid={`img-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  />
                 </div>
-                <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-white transition-colors mb-6">
-                  <service.icon size={32} />
+                <div className="p-6">
+                  <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-white transition-colors mb-4">
+                    <service.icon size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-500 mb-6 leading-relaxed">
+                    {service.desc}
+                  </p>
+                  <a
+                    href="#"
+                    className="flex items-center gap-2 text-sm font-bold text-primary uppercase group-hover:translate-x-2 transition-transform"
+                    data-testid={`link-service-details-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  >
+                    Read More <ArrowRight size={16} className="text-secondary" />
+                  </a>
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-slate-500 mb-6 leading-relaxed">
-                  {service.desc}
-                </p>
-                <a
-                  href="#"
-                  className="flex items-center gap-2 text-sm font-bold text-primary uppercase group-hover:translate-x-2 transition-transform"
-                >
-                  Read More <ArrowRight size={16} className="text-secondary" />
-                </a>
               </motion.div>
             ))}
           </div>
@@ -803,7 +738,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blog Section with Social Share */}
+      {/* Blog Section with Slider */}
       <section id="blog" className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -816,108 +751,222 @@ export default function Home() {
             <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                img: blog1,
-                title: "10 Tips to Lower Your Home Insurance Premium",
-                date: "Dec 12, 2025",
-              },
-              {
-                img: blog2,
-                title: "Why Business Liability Coverage is Essential",
-                date: "Dec 10, 2025",
-              },
-              {
-                img: blog3,
-                title: "Understanding the Claims Process After an Accident",
-                date: "Dec 05, 2025",
-              },
-            ].map((post, i) => (
+          <div className="relative">
+            <div className="overflow-hidden">
               <div
-                key={i}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group"
+                className="flex transition-transform duration-500 ease-out"
+                style={{
+                  transform: `translateX(-${blogSlideIndex * 100}%)`,
+                }}
               >
-                <div className="h-56 overflow-hidden relative">
-                  <img
-                    src={post.img}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-4 text-xs text-slate-400 mb-3">
-                    <span className="flex items-center gap-1">
-                      <Users size={12} /> Admin
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={12} /> {post.date}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3 leading-snug hover:text-secondary transition-colors cursor-pointer">
-                    {post.title}
-                  </h3>
-                  <div className="flex items-center justify-between">
-                    <a
-                      href="#"
-                      className="inline-flex items-center gap-1 text-sm font-bold text-secondary hover:underline"
+                {[
+                  {
+                    id: 1,
+                    img: blog1,
+                    title: "10 Tips to Lower Your Home Insurance Premium",
+                    date: "Dec 12, 2025",
+                  },
+                  {
+                    id: 2,
+                    img: blog2,
+                    title: "Why Business Liability Coverage is Essential",
+                    date: "Dec 10, 2025",
+                  },
+                  {
+                    id: 3,
+                    img: blog3,
+                    title: "Understanding the Claims Process After an Accident",
+                    date: "Dec 05, 2025",
+                  },
+                ].map((post) => (
+                  <div
+                    key={post.id}
+                    className="w-full md:w-1/2 lg:w-1/3 px-2 flex-shrink-0"
+                  >
+                    <div
+                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group h-full"
+                      data-testid={`card-blog-${post.id}`}
                     >
-                      Read More <ArrowRight size={14} />
-                    </a>
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() =>
-                          shareOnSocial(
-                            "facebook",
-                            post.title,
-                            window.location.href,
-                          )
-                        }
-                        className="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
-                      >
-                        <Facebook size={14} />
-                      </button>
-                      <button
-                        onClick={() =>
-                          shareOnSocial(
-                            "twitter",
-                            post.title,
-                            window.location.href,
-                          )
-                        }
-                        className="w-7 h-7 bg-sky-500 text-white rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors"
-                      >
-                        <Share2 size={14} />
-                      </button>
-                      <button
-                        onClick={() =>
-                          shareOnSocial(
-                            "linkedin",
-                            post.title,
-                            window.location.href,
-                          )
-                        }
-                        className="w-7 h-7 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
-                      >
-                        <Linkedin size={14} />
-                      </button>
-                      <button
-                        onClick={() =>
-                          shareOnSocial(
-                            "whatsapp",
-                            post.title,
-                            window.location.href,
-                          )
-                        }
-                        className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
-                      >
-                        <Share2 size={14} />
-                      </button>
+                      <div className="h-56 overflow-hidden relative">
+                        <img
+                          src={post.img}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          data-testid={`img-blog-${post.id}`}
+                        />
+                      </div>
+                      <div className="p-6">
+                        <div className="flex items-center gap-4 text-xs text-slate-400 mb-3">
+                          <span className="flex items-center gap-1">
+                            <Users size={12} /> Admin
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock size={12} /> {post.date}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-primary mb-4 leading-snug">
+                          {post.title}
+                        </h3>
+                        <div className="flex items-center justify-between">
+                          <Link href={`/blog/${post.id}`}>
+                            <a
+                              className="inline-flex items-center gap-1 text-sm font-bold text-secondary hover:underline"
+                              data-testid={`link-read-more-blog-${post.id}`}
+                            >
+                              Read More <ArrowRight size={14} />
+                            </a>
+                          </Link>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() =>
+                                shareOnSocial(
+                                  "facebook",
+                                  post.title,
+                                  window.location.href,
+                                )
+                              }
+                              className="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                              data-testid={`button-share-facebook-${post.id}`}
+                            >
+                              <Facebook size={14} />
+                            </button>
+                            <button
+                              onClick={() =>
+                                shareOnSocial(
+                                  "twitter",
+                                  post.title,
+                                  window.location.href,
+                                )
+                              }
+                              className="w-7 h-7 bg-sky-500 text-white rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors"
+                              data-testid={`button-share-twitter-${post.id}`}
+                            >
+                              <Share2 size={14} />
+                            </button>
+                            <button
+                              onClick={() =>
+                                shareOnSocial(
+                                  "linkedin",
+                                  post.title,
+                                  window.location.href,
+                                )
+                              }
+                              className="w-7 h-7 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                              data-testid={`button-share-linkedin-${post.id}`}
+                            >
+                              <Linkedin size={14} />
+                            </button>
+                            <button
+                              onClick={() =>
+                                shareOnSocial(
+                                  "whatsapp",
+                                  post.title,
+                                  window.location.href,
+                                )
+                              }
+                              className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
+                              data-testid={`button-share-whatsapp-${post.id}`}
+                            >
+                              <Share2 size={14} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Slider Controls */}
+            <div className="flex justify-center gap-4 mt-8">
+              <button
+                onClick={() =>
+                  setBlogSlideIndex(Math.max(0, blogSlideIndex - 1))
+                }
+                disabled={blogSlideIndex === 0}
+                className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                data-testid="button-blog-prev"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <div className="flex items-center gap-2">
+                {[0, 1, 2].map((i) => (
+                  <button
+                    key={i}
+                    onClick={() => setBlogSlideIndex(i)}
+                    className={cn(
+                      "w-3 h-3 rounded-full transition-colors",
+                      blogSlideIndex === i ? "bg-secondary" : "bg-slate-300"
+                    )}
+                    data-testid={`button-blog-dot-${i}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => setBlogSlideIndex(Math.min(2, blogSlideIndex + 1))}
+                disabled={blogSlideIndex === 2}
+                className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                data-testid="button-blog-next"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* IRDAI Certification Section */}
+      <section className="py-20 bg-gradient-to-r from-secondary/5 to-primary/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex-shrink-0"
+            >
+              <div className="w-40 h-40 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center border-4 border-secondary relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-secondary via-primary to-secondary"></div>
+                <Award size={64} className="text-secondary mb-2" data-testid="icon-certification" />
+                <p className="text-sm font-bold text-primary text-center px-2">Certified</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex-1"
+            >
+              <div className="inline-block bg-secondary/10 px-4 py-2 rounded-full mb-4">
+                <span className="text-secondary font-bold uppercase tracking-widest text-sm">
+                  Trust & Credibility
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4 leading-tight">
+                IRDAI Certified Insurance Provider
+              </h2>
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                Insurance Lab is officially certified by the Insurance Regulatory and Development Authority of India (IRDAI). This certification ensures that all our insurance products and services meet the highest standards of quality, compliance, and customer protection established by India's insurance regulator.
+              </p>
+              <div className="space-y-3">
+                {[
+                  "100% Regulatory Compliant",
+                  "Customer Protection Guaranteed",
+                  "Transparent Pricing & Policies",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                      <Check size={14} strokeWidth={3} />
+                    </div>
+                    <span className="font-medium text-primary">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -952,126 +1001,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#010647] text-slate-300 py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            <div>
-              <img
-                src={logo}
-                alt="Insurance Lab"
-                className="h-10 w-auto mb-6"
-              />
-              <p className="mb-6 leading-relaxed text-sm">
-                Insurance Lab provides scientific risk assessment and tailored
-                protection plans. Your safety is our science.
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/5 hover:bg-secondary rounded-full flex items-center justify-center transition-colors text-white"
-                >
-                  <Facebook size={16} />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/5 hover:bg-secondary rounded-full flex items-center justify-center transition-colors text-white"
-                >
-                  <Instagram size={16} />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/5 hover:bg-secondary rounded-full flex items-center justify-center transition-colors text-white"
-                >
-                  <Linkedin size={16} />
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
-              <ul className="space-y-3 text-sm">
-                {[
-                  { name: "Home", href: "/" },
-                  { name: "About Us", href: "#about" },
-                  { name: "Services", href: "#services" },
-                  { name: "Contact", href: "/contact" },
-                ].map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="hover:text-secondary transition-colors flex items-center gap-2"
-                    >
-                      <span className="w-1.5 h-1.5 bg-secondary rounded-full"></span>
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold text-lg mb-6">Services</h4>
-              <ul className="space-y-3 text-sm">
-                {[
-                  "Personal Insurance",
-                  "Business Insurance",
-                  "Investments & Loans",
-                  "Claim Services",
-                ].map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="hover:text-secondary transition-colors flex items-center gap-2"
-                    >
-                      <span className="w-1.5 h-1.5 bg-secondary rounded-full"></span>
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold text-lg mb-6">Contact</h4>
-              <ul className="space-y-4 text-sm">
-                <li className="flex items-start gap-3">
-                  <MapPin className="text-secondary shrink-0 mt-1" size={18} />
-                  <span>
-                    123 Insurance Blvd, Financial District, New York, NY 10005
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="text-secondary shrink-0" size={18} />
-                  <span>+91 73031 77489</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="text-secondary shrink-0" size={18} />
-                  <span>contact@insurancelab.com</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-            <p>&copy; 2025 Insurance Lab. All Rights Reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white">
-                Terms of Use
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -5,7 +5,8 @@ import { ChevronDown, Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import logo from "@assets/Insurancelablogo-removebg-preview_1766038794097.png";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Contact() {
   const [selectedService, setSelectedService] = useState("");
@@ -21,19 +22,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen font-sans text-slate-600">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md py-3">
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-2 cursor-pointer">
-              <img src={logo} alt="Insurance Lab" className="h-10 w-auto" />
-            </a>
-          </Link>
-          <Link href="/">
-            <a className="text-primary font-bold hover:text-secondary transition-colors">Back to Home</a>
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 bg-gradient-to-r from-primary to-primary/80">
@@ -210,20 +199,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#010647] text-slate-300 py-12">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <img src={logo} alt="Insurance Lab" className="h-8 w-auto" />
-            <p>&copy; 2025 Insurance Lab. All Rights Reserved.</p>
-            <div className="flex gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-secondary"><Facebook size={20} /></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-secondary"><Instagram size={20} /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-secondary"><Linkedin size={20} /></a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

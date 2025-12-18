@@ -2,7 +2,8 @@ import { useParams, Link } from "wouter";
 import { motion } from "framer-motion";
 import { Clock, User, Facebook, Share2, Linkedin, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@assets/Insurancelablogo-removebg-preview_1766038794097.png";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import blog1 from "@assets/generated_images/home_insurance_concept.png";
 import blog2 from "@assets/generated_images/business_insurance_meeting.png";
 import blog3 from "@assets/generated_images/car_insurance_protection.png";
@@ -280,29 +281,7 @@ export default function BlogDetail() {
 
   return (
     <div className="min-h-screen font-sans text-slate-600">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md py-3">
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-2 cursor-pointer">
-              <img src={logo} alt="Insurance Lab" className="h-10 w-auto" />
-            </a>
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/"><a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Home</a></Link>
-            <Link href="/about"><a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">About</a></Link>
-            <Link href="/services"><a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Services</a></Link>
-            <a href="/blog" className="text-sm font-semibold uppercase tracking-wide text-secondary">Blog</a>
-            <Link href="/contact"><a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Contact</a></Link>
-          </nav>
-          <Button 
-            className="bg-secondary hover:bg-secondary/90 text-white font-bold px-6 rounded-full"
-            onClick={() => window.open(whatsappUrl, "_blank")}
-          >
-            GET A QUOTE
-          </Button>
-        </div>
-      </header>
+      <Header />
 
       {/* Article */}
       <article className="pt-32 pb-20">
@@ -410,13 +389,7 @@ export default function BlogDetail() {
         </div>
       </article>
 
-      {/* Footer */}
-      <footer className="bg-[#010647] text-slate-300 py-12">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <img src={logo} alt="Insurance Lab" className="h-8 w-auto mx-auto mb-6" />
-          <p>&copy; 2025 Insurance Lab. All Rights Reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
