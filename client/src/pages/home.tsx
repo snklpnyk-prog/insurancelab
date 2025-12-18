@@ -24,7 +24,7 @@ import {
   Zap,
   TrendingUp,
   CheckCircle,
-  Share2
+  Share2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -104,7 +104,7 @@ export default function Home() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-md py-3"
-            : "bg-transparent py-5",
+            : "bg-white py-3",
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -116,24 +116,15 @@ export default function Home() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {["Home", "About", "Services", "Blog", "Contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={item === "Contact" ? "/contact" : `#${item.toLowerCase()}`}
-                  className={cn(
-                    "text-sm font-semibold uppercase tracking-wide hover:text-secondary transition-colors",
-                    isScrolled ? "text-slate-700" : "text-slate-100",
-                  )}
-                >
-                  {item}
-                </a>
-              ),
-            )}
+            <a href="/" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Home</a>
+            <a href="/about" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">About</a>
+            <a href="/services" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Services</a>
+            <a href="/blog" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Blog</a>
+            <a href="/contact" className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">Contact</a>
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button 
+            <Button
               className="bg-secondary hover:bg-secondary/90 text-white font-bold px-6 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={() => window.open(whatsappUrl, "_blank")}
             >
@@ -167,19 +158,12 @@ export default function Home() {
               className="md:hidden bg-white border-t absolute w-full left-0 top-full shadow-xl"
             >
               <div className="flex flex-col p-4 gap-4">
-                {["Home", "About", "Services", "Blog", "Contact"].map(
-                  (item) => (
-                    <a
-                      key={item}
-                      href={item === "Contact" ? "/contact" : `#${item.toLowerCase()}`}
-                      className="text-primary font-bold py-2 border-b border-slate-100"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item}
-                    </a>
-                  ),
-                )}
-                <Button 
+                <a href="/" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Home</a>
+                <a href="/about" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>About</a>
+                <a href="/services" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Services</a>
+                <a href="/blog" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Blog</a>
+                <a href="/contact" className="text-primary font-bold py-2 border-b border-slate-100" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+                <Button
                   className="bg-secondary text-white w-full mt-2 cursor-pointer"
                   onClick={() => window.open(whatsappUrl, "_blank")}
                 >
@@ -202,7 +186,7 @@ export default function Home() {
             alt="Insurance Consultation"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/30 to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-white">
@@ -212,7 +196,10 @@ export default function Home() {
             variants={staggerContainer}
             className="max-w-2xl"
           >
-            <motion.div variants={fadeIn} className="flex items-center gap-2 mb-4">
+            <motion.div
+              variants={fadeIn}
+              className="flex items-center gap-2 mb-2 mt-5"
+            >
               <span className="h-1 w-10 bg-secondary inline-block rounded-full"></span>
               <span className="text-secondary font-bold uppercase tracking-widest text-sm">
                 Welcome to Insurance Lab
@@ -221,7 +208,7 @@ export default function Home() {
 
             <motion.h1
               variants={fadeIn}
-              className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold leading-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight mb-2"
             >
               Comprehensive insurance solutions for every{" "}
               <span className="text-secondary">stage of life</span>
@@ -236,7 +223,10 @@ export default function Home() {
               expertise.
             </motion.p>
 
-            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
+            <motion.div
+              variants={fadeIn}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Button
                 size="lg"
                 className="bg-secondary hover:bg-secondary/90 text-white font-bold px-8 rounded-full h-14 text-lg shadow-lg hover:shadow-secondary/50 transition-all cursor-pointer"
@@ -257,7 +247,7 @@ export default function Home() {
 
             <motion.div
               variants={fadeIn}
-              className="mt-12 flex gap-8 border-t border-white/20 pt-8"
+              className="mt-12 flex gap-8 border-t border-white/20 pt-4 pb-4"
             >
               <div>
                 <h4 className="text-3xl font-bold text-white">25k+</h4>
@@ -448,14 +438,16 @@ export default function Home() {
                     Personal Insurance
                   </h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
-                    Comprehensive protection for every stage of your life. From health coverage to personal accident insurance, we ensure you and your loved ones are always protected.
+                    Comprehensive protection for every stage of your life. From
+                    health coverage to personal accident insurance, we ensure
+                    you and your loved ones are always protected.
                   </p>
                   <ul className="space-y-3 mb-8">
                     {[
                       "Health Insurance Plans",
                       "Personal Accident Coverage",
                       "Travel Insurance",
-                      "Critical Illness Protection"
+                      "Critical Illness Protection",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3">
                         <CheckCircle size={18} className="text-secondary" />
@@ -463,7 +455,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                  <Button
                     className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-full font-bold cursor-pointer"
                     onClick={() => window.open(whatsappUrl, "_blank")}
                   >
@@ -492,14 +484,16 @@ export default function Home() {
                     Business Insurance
                   </h3>
                   <p className="text-white/80 mb-6 leading-relaxed">
-                    Enterprise-level advisory and protection for your business. Secure your operations with comprehensive coverage tailored to your industry.
+                    Enterprise-level advisory and protection for your business.
+                    Secure your operations with comprehensive coverage tailored
+                    to your industry.
                   </p>
                   <ul className="space-y-3 mb-8">
                     {[
                       "General Liability Coverage",
                       "Professional Indemnity",
                       "Employee Benefits",
-                      "Property & Asset Protection"
+                      "Property & Asset Protection",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3">
                         <CheckCircle size={18} className="text-secondary" />
@@ -507,7 +501,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                  <Button
                     className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-full font-bold cursor-pointer"
                     onClick={() => window.open(whatsappUrl, "_blank")}
                   >
@@ -530,14 +524,16 @@ export default function Home() {
                     Investments & Loans
                   </h3>
                   <p className="text-slate-600 mb-6 leading-relaxed">
-                    Grow your wealth with our investment advisory services. Access expert guidance on mutual funds, crypto investments, and loan assistance tailored to your goals.
+                    Grow your wealth with our investment advisory services.
+                    Access expert guidance on mutual funds, crypto investments,
+                    and loan assistance tailored to your goals.
                   </p>
                   <ul className="space-y-3 mb-8">
                     {[
                       "Mutual Fund Advisory",
                       "Crypto Investment Guidance",
                       "Domain Investing",
-                      "Loan Assistance Programs"
+                      "Loan Assistance Programs",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3">
                         <CheckCircle size={18} className="text-secondary" />
@@ -545,7 +541,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                  <Button
                     className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-full font-bold cursor-pointer"
                     onClick={() => window.open(whatsappUrl, "_blank")}
                   >
@@ -568,18 +564,32 @@ export default function Home() {
               <h3 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-12 text-center">
                 Claim Services - Fast & Hassle-Free
               </h3>
-              
+
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 {[
-                  { num: "1", title: "File Claim", desc: "Submit your claim details through our easy online platform" },
-                  { num: "2", title: "Assessment", desc: "Our experts review and verify your claim quickly" },
-                  { num: "3", title: "Settlement", desc: "Receive your settlement amount within 24-48 hours" }
+                  {
+                    num: "1",
+                    title: "File Claim",
+                    desc: "Submit your claim details through our easy online platform",
+                  },
+                  {
+                    num: "2",
+                    title: "Assessment",
+                    desc: "Our experts review and verify your claim quickly",
+                  },
+                  {
+                    num: "3",
+                    title: "Settlement",
+                    desc: "Receive your settlement amount within 24-48 hours",
+                  },
                 ].map((step) => (
                   <div key={step.num} className="text-center">
                     <div className="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                       {step.num}
                     </div>
-                    <h4 className="text-xl font-bold text-primary mb-2">{step.title}</h4>
+                    <h4 className="text-xl font-bold text-primary mb-2">
+                      {step.title}
+                    </h4>
                     <p className="text-slate-600">{step.desc}</p>
                   </div>
                 ))}
@@ -587,29 +597,39 @@ export default function Home() {
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-slate-50 p-6 rounded-xl">
-                  <h4 className="font-bold text-primary mb-3">Success Case Study</h4>
+                  <h4 className="font-bold text-primary mb-3">
+                    Success Case Study
+                  </h4>
                   <p className="text-slate-600 text-sm mb-4">
-                    Customer recovered ₹5 Lakhs in claim settlement within 48 hours with our expert advocacy.
+                    Customer recovered ₹5 Lakhs in claim settlement within 48
+                    hours with our expert advocacy.
                   </p>
                   <div className="flex items-center gap-2">
                     <Star size={16} className="text-secondary fill-secondary" />
-                    <span className="text-sm font-bold text-primary">Highly Satisfied</span>
+                    <span className="text-sm font-bold text-primary">
+                      Highly Satisfied
+                    </span>
                   </div>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">
-                  <h4 className="font-bold text-primary mb-3">Another Success Story</h4>
+                  <h4 className="font-bold text-primary mb-3">
+                    Another Success Story
+                  </h4>
                   <p className="text-slate-600 text-sm mb-4">
-                    Business recovered ₹20 Lakhs through our comprehensive claim advocacy services.
+                    Business recovered ₹20 Lakhs through our comprehensive claim
+                    advocacy services.
                   </p>
                   <div className="flex items-center gap-2">
                     <Star size={16} className="text-secondary fill-secondary" />
-                    <span className="text-sm font-bold text-primary">Highly Satisfied</span>
+                    <span className="text-sm font-bold text-primary">
+                      Highly Satisfied
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div className="text-center mt-8">
-                <Button 
+                <Button
                   className="bg-secondary hover:bg-secondary/90 text-white px-8 py-3 rounded-full font-bold cursor-pointer"
                   onClick={() => window.open(whatsappUrl, "_blank")}
                 >
@@ -846,25 +866,49 @@ export default function Home() {
                     </a>
                     <div className="flex gap-2">
                       <button
-                        onClick={() => shareOnSocial("facebook", post.title, window.location.href)}
+                        onClick={() =>
+                          shareOnSocial(
+                            "facebook",
+                            post.title,
+                            window.location.href,
+                          )
+                        }
                         className="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
                       >
                         <Facebook size={14} />
                       </button>
                       <button
-                        onClick={() => shareOnSocial("twitter", post.title, window.location.href)}
+                        onClick={() =>
+                          shareOnSocial(
+                            "twitter",
+                            post.title,
+                            window.location.href,
+                          )
+                        }
                         className="w-7 h-7 bg-sky-500 text-white rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors"
                       >
                         <Share2 size={14} />
                       </button>
                       <button
-                        onClick={() => shareOnSocial("linkedin", post.title, window.location.href)}
+                        onClick={() =>
+                          shareOnSocial(
+                            "linkedin",
+                            post.title,
+                            window.location.href,
+                          )
+                        }
                         className="w-7 h-7 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
                       >
                         <Linkedin size={14} />
                       </button>
                       <button
-                        onClick={() => shareOnSocial("whatsapp", post.title, window.location.href)}
+                        onClick={() =>
+                          shareOnSocial(
+                            "whatsapp",
+                            post.title,
+                            window.location.href,
+                          )
+                        }
                         className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
                       >
                         <Share2 size={14} />
@@ -913,7 +957,11 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
-              <img src={logo} alt="Insurance Lab" className="h-10 w-auto mb-6" />
+              <img
+                src={logo}
+                alt="Insurance Lab"
+                className="h-10 w-auto mb-6"
+              />
               <p className="mb-6 leading-relaxed text-sm">
                 Insurance Lab provides scientific risk assessment and tailored
                 protection plans. Your safety is our science.
