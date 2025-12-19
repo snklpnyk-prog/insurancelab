@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 md:py-32 bg-white">
+      <section id="about" className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
@@ -201,6 +201,7 @@ export default function Home() {
                 <img
                   src={aboutImg}
                   alt="About Us"
+                  loading="lazy"
                   className="w-full object-cover"
                 />
               </div>
@@ -334,6 +335,7 @@ export default function Home() {
                   <img
                     src={service.image}
                     alt={service.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     data-testid={`img-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
                   />
@@ -405,6 +407,7 @@ export default function Home() {
                   <img
                     src={personalinsurance}
                     alt="personal insurance"
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -423,6 +426,7 @@ export default function Home() {
                   <img
                     src={businessinsurance}
                     alt="personal insurance"
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -499,6 +503,7 @@ export default function Home() {
                   <img
                     src={investment}
                     alt="personal insurance"
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -1016,12 +1021,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="flex w-full md:w-auto gap-2">
+            <div className="flex flex-col sm:flex-row w-full md:w-auto gap-2">
               <Input
                 placeholder="Your Email Address"
-                className="bg-white h-12 rounded-lg border-none text-slate-800 md:w-80"
+                className="bg-white h-12 rounded-lg border-none text-slate-800 md:w-80 w-full"
               />
-              <Button className="bg-secondary hover:bg-secondary/90 text-white font-bold h-12 rounded-lg px-6">
+              <Button className="bg-secondary hover:bg-secondary/90 text-white font-bold h-12 rounded-lg px-6 w-full sm:w-auto">
                 Subscribe
               </Button>
             </div>
