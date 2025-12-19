@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,6 @@ interface HeaderProps {
 export default function Header({ isTransparent = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,16 +24,6 @@ export default function Header({ isTransparent = false }: HeaderProps) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/investment", label: "Investment & Loan" },
-    { href: "/claims", label: "Claim Services" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ];
 
   return (
     <>
@@ -54,17 +43,37 @@ export default function Header({ isTransparent = false }: HeaderProps) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <a className={cn(
-                  "text-sm font-semibold uppercase tracking-wide transition-colors",
-                  location === link.href ? "text-secondary" : "text-slate-700 hover:text-secondary"
-                )}>
-                  {link.label}
-                </a>
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="/">
+              <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
+                Home
+              </a>
+            </Link>
+            <Link href="/about">
+              <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
+                About
+              </a>
+            </Link>
+            <Link href="/services">
+              <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
+                Services
+              </a>
+            </Link>
+            <Link href="/blog">
+              <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
+                Investment & Loan
+              </a>
+            </Link>
+            <Link href="/blog">
+              <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
+                Claim Services
+              </a>
+            </Link>
+            <Link href="/contact">
+              <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
+                Contact
+              </a>
+            </Link>
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
@@ -79,7 +88,7 @@ export default function Header({ isTransparent = false }: HeaderProps) {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="xl:hidden text-secondary"
+            className="md:hidden text-secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-menu-toggle"
           >
@@ -101,25 +110,51 @@ export default function Header({ isTransparent = false }: HeaderProps) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="xl:hidden bg-white border-t absolute w-full left-0 top-full shadow-xl overflow-hidden"
+              className="md:hidden bg-white border-t absolute w-full left-0 top-full shadow-xl"
             >
-              <div className="flex flex-col p-4 gap-2">
-                {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href}>
-                    <a
-                      className={cn(
-                        "font-bold py-3 border-b border-slate-100 last:border-0",
-                        location === link.href ? "text-secondary" : "text-primary"
-                      )}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                    </a>
-                  </Link>
-                ))}
-                
+              <div className="flex flex-col p-4 gap-4">
+                <Link href="/">
+                  <a
+                    className="text-primary font-bold py-2 border-b border-slate-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Home
+                  </a>
+                </Link>
+                <Link href="/about">
+                  <a
+                    className="text-primary font-bold py-2 border-b border-slate-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About
+                  </a>
+                </Link>
+                <Link href="/services">
+                  <a
+                    className="text-primary font-bold py-2 border-b border-slate-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Services
+                  </a>
+                </Link>
+                <Link href="/blog">
+                  <a
+                    className="text-primary font-bold py-2 border-b border-slate-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Blog
+                  </a>
+                </Link>
+                <Link href="/contact">
+                  <a
+                    className="text-primary font-bold py-2 border-b border-slate-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Contact
+                  </a>
+                </Link>
                 <Button
-                  className="bg-secondary text-white w-full mt-4 cursor-pointer py-6"
+                  className="bg-secondary text-white w-full mt-2 cursor-pointer"
                   onClick={() => window.open(whatsappUrl, "_blank")}
                   data-testid="button-mobile-quote"
                 >
