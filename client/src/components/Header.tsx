@@ -32,7 +32,7 @@ export default function Header({ isTransparent = false }: HeaderProps) {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled || !isTransparent
             ? "bg-white/95 backdrop-blur-md shadow-md py-3"
-            : "bg-white py-3"
+            : "bg-white py-3",
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -61,7 +61,12 @@ export default function Header({ isTransparent = false }: HeaderProps) {
             </Link>
             <Link href="/blog">
               <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
-                Blog
+                Investment & Loan
+              </a>
+            </Link>
+            <Link href="/blog">
+              <a className="text-sm font-semibold uppercase tracking-wide text-slate-700 hover:text-secondary transition-colors">
+                Claim Services
               </a>
             </Link>
             <Link href="/contact">

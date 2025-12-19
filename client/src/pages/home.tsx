@@ -41,8 +41,8 @@ import Footer from "@/components/Footer";
 
 // Assets
 import heroBg from "@assets/generated_images/insurance_consultation_with_happy_family.png";
-import aboutImg from "@assets/generated_images/corporate_advisor_shaking_hands.png";
-import whyUsImg from "@assets/generated_images/team_of_professionals_discussing.png";
+import aboutImg from "@assets/generated_images/insurancebaout.png";
+import whyUsImg from "@assets/generated_images/insurancewhychooseus.png";
 import ctaBg from "@assets/generated_images/abstract_royal_blue_background.png";
 import blog1 from "@assets/generated_images/home_insurance_concept.png";
 import blog2 from "@assets/generated_images/business_growth_analysis.png";
@@ -51,7 +51,9 @@ import serviceHome from "@assets/generated_images/luxury_home_interior_design.pn
 import serviceHealth from "@assets/generated_images/professional_health_insurance_concept.png";
 import serviceBusiness from "@assets/generated_images/modern_business_office_building.png";
 import serviceCar from "@assets/generated_images/premium_luxury_car_photography.png";
-
+import personalinsurance from "@assets/generated_images/insurance_four.avif";
+import businessinsurance from "@assets/generated_images/businessinsurance.jpg";
+import investment from "@assets/generated_images/investment-5318530_1280.jpg";
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -351,7 +353,8 @@ export default function Home() {
                     className="flex items-center gap-2 text-sm font-bold text-primary uppercase group-hover:translate-x-2 transition-transform"
                     data-testid={`link-service-details-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
                   >
-                    Read More <ArrowRight size={16} className="text-secondary" />
+                    Read More{" "}
+                    <ArrowRight size={16} className="text-secondary" />
                   </a>
                 </div>
               </motion.div>
@@ -398,7 +401,12 @@ export default function Home() {
                   </Button>
                 </div>
                 <div className="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl h-80 flex items-center justify-center">
-                  <Users size={120} className="text-primary/30" />
+                  {/* <Users size={120} className="text-primary/30" /> */}
+                  <img
+                    src={personalinsurance}
+                    alt="personal insurance"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -412,7 +420,11 @@ export default function Home() {
             >
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="bg-white/10 rounded-2xl h-80 flex items-center justify-center">
-                  <Briefcase size={120} className="text-white/30" />
+                  <img
+                    src={businessinsurance}
+                    alt="personal insurance"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-4xl font-heading font-bold mb-4">
@@ -484,7 +496,11 @@ export default function Home() {
                   </Button>
                 </div>
                 <div className="bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl h-80 flex items-center justify-center">
-                  <TrendingUp size={120} className="text-secondary/40" />
+                  <img
+                    src={investment}
+                    alt="personal insurance"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -897,14 +913,16 @@ export default function Home() {
                     onClick={() => setBlogSlideIndex(i)}
                     className={cn(
                       "w-3 h-3 rounded-full transition-colors",
-                      blogSlideIndex === i ? "bg-secondary" : "bg-slate-300"
+                      blogSlideIndex === i ? "bg-secondary" : "bg-slate-300",
                     )}
                     data-testid={`button-blog-dot-${i}`}
                   />
                 ))}
               </div>
               <button
-                onClick={() => setBlogSlideIndex(Math.min(2, blogSlideIndex + 1))}
+                onClick={() =>
+                  setBlogSlideIndex(Math.min(2, blogSlideIndex + 1))
+                }
                 disabled={blogSlideIndex === 2}
                 className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 data-testid="button-blog-next"
@@ -929,8 +947,14 @@ export default function Home() {
             >
               <div className="w-40 h-40 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center border-4 border-secondary relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-secondary via-primary to-secondary"></div>
-                <Award size={64} className="text-secondary mb-2" data-testid="icon-certification" />
-                <p className="text-sm font-bold text-primary text-center px-2">Certified</p>
+                <Award
+                  size={64}
+                  className="text-secondary mb-2"
+                  data-testid="icon-certification"
+                />
+                <p className="text-sm font-bold text-primary text-center px-2">
+                  Certified
+                </p>
               </div>
             </motion.div>
 
@@ -950,7 +974,11 @@ export default function Home() {
                 IRDAI Certified Insurance Provider
               </h2>
               <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Insurance Lab is officially certified by the Insurance Regulatory and Development Authority of India (IRDAI). This certification ensures that all our insurance products and services meet the highest standards of quality, compliance, and customer protection established by India's insurance regulator.
+                Insurance Lab is officially certified by the Insurance
+                Regulatory and Development Authority of India (IRDAI). This
+                certification ensures that all our insurance products and
+                services meet the highest standards of quality, compliance, and
+                customer protection established by India's insurance regulator.
               </p>
               <div className="space-y-3">
                 {[
