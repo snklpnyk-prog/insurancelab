@@ -1,16 +1,23 @@
-import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import logo from "@assets/Insurancelablogo-removebg-preview_1766038794097.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#010647] text-slate-300 py-16">
+    <footer className="bg-[#010647] text-slate-300 py-6">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <img
               src={logo}
               alt="Insurance Lab"
-              className="h-10 w-auto mb-6"
+              className="h-10 w-auto mb-6 bg-white"
               data-testid="img-logo-footer"
             />
             <p className="mb-6 leading-relaxed text-sm">
@@ -37,7 +44,7 @@ export default function Footer() {
                 <Instagram size={16} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="www.linkedin.com/in/anshul-p-444a8816"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/5 hover:bg-secondary rounded-full flex items-center justify-center transition-colors text-white"
@@ -82,7 +89,7 @@ export default function Footer() {
               ].map((link) => (
                 <li key={link}>
                   <a
-                    href="#"
+                    href="/services"
                     className="hover:text-secondary transition-colors flex items-center gap-2"
                     data-testid={`link-service-${link.toLowerCase().replace(/\s+/g, "-")}`}
                   >
@@ -109,22 +116,19 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-secondary shrink-0" size={18} />
-                <span data-testid="text-email-footer">contact@insurancelab.com</span>
+                <span data-testid="text-email-footer">
+                  contact@insurancelab.com
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p data-testid="text-copyright-footer">&copy; 2025 Insurance Lab. All Rights Reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white" data-testid="link-privacy-footer">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white" data-testid="link-terms-footer">
-              Terms of Use
-            </a>
-          </div>
+        <div className="border-t border-white/10 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
+          <p data-testid="text-copyright-footer">
+            &copy; 2025 Insurance Lab. All Rights Reserved.
+          </p>
+          <p data-testid="text-copyright-footer">Made with ❤️ By UDM Techno</p>
         </div>
       </div>
     </footer>
