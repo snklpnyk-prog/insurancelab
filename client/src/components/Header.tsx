@@ -46,7 +46,7 @@ export default function Header({ isTransparent = false }: HeaderProps) {
             : "bg-white py-3",
         )}
       >
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        <div className="container mx-auto px-4 md:px-4 flex items-center justify-between">
           <Link href="/">
             <a className="flex items-center gap-2 cursor-pointer">
               <img src={logo} alt="Insurance Lab" className="h-10 w-auto" />
@@ -57,10 +57,14 @@ export default function Header({ isTransparent = false }: HeaderProps) {
           <nav className="hidden xl:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
-                <a className={cn(
-                  "text-sm font-semibold uppercase tracking-wide transition-colors",
-                  location === link.href ? "text-secondary" : "text-slate-700 hover:text-secondary"
-                )}>
+                <a
+                  className={cn(
+                    "text-sm font-semibold uppercase tracking-wide transition-colors",
+                    location === link.href
+                      ? "text-secondary"
+                      : "text-slate-700 hover:text-secondary",
+                  )}
+                >
                   {link.label}
                 </a>
               </Link>
@@ -109,7 +113,9 @@ export default function Header({ isTransparent = false }: HeaderProps) {
                     <a
                       className={cn(
                         "font-bold py-3 border-b border-slate-100 last:border-0",
-                        location === link.href ? "text-secondary" : "text-primary"
+                        location === link.href
+                          ? "text-secondary"
+                          : "text-primary",
                       )}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -117,7 +123,7 @@ export default function Header({ isTransparent = false }: HeaderProps) {
                     </a>
                   </Link>
                 ))}
-                
+
                 <Button
                   className="bg-secondary text-white w-full mt-4 cursor-pointer py-6"
                   onClick={() => window.open(whatsappUrl, "_blank")}

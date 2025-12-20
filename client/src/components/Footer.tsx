@@ -26,7 +26,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61584839527820"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/5 hover:bg-secondary rounded-full flex items-center justify-center transition-colors text-white"
@@ -35,7 +35,7 @@ export default function Footer() {
                 <Facebook size={16} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/insurancelabs_?igsh=YWhhYnEydDVrNjBp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/5 hover:bg-secondary rounded-full flex items-center justify-center transition-colors text-white"
@@ -107,7 +107,8 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="text-secondary shrink-0 mt-1" size={18} />
                 <span data-testid="text-address-footer">
-                  123 Insurance Blvd, Financial District, New York, NY 10005
+                  Address: Office No. 112, Regus Business Centre, Honda Big
+                  Wing, Scheme No. 78, Indore, Madhya Pradesh
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -117,7 +118,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="text-secondary shrink-0" size={18} />
                 <span data-testid="text-email-footer">
-                  contact@insurancelab.com
+                  insurancelabs2@gmail.com
                 </span>
               </li>
             </ul>

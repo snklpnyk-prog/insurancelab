@@ -24,7 +24,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import personalImg from "@assets/generated_images/family_and_health_insurance_concept.png";
+import personalImg from "@assets/generated_images/couple-home-top.jpeg";
 import businessImg from "@assets/generated_images/business_professional_insurance_concept.png";
 
 const whatsappUrl =
@@ -186,24 +186,24 @@ export default function Services() {
       </section>
 
       {/* Main Content Tabs */}
-      <section className="py-12">
+      <section className="py-8">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs
             defaultValue="personal"
             className="w-full"
             onValueChange={setActiveTab}
           >
-            <div className="flex justify-center mb-12">
-              <TabsList className="grid w-full max-w-md grid-cols-2 bg-slate-200 py-3 rounded-full">
+            <div className="flex justify-center mb-10 pb-10 pt-2 ">
+              <TabsList className="grid w-full max-w-md grid-cols-2  -py-8  rounded-full">
                 <TabsTrigger
                   value="personal"
-                  className="rounded-full text-lg py-3 data-[state=active]:bg-secondary data-[state=active]:text-white transition-all"
+                  className="rounded-full text-2xl py-3 data-[state=active]:bg-secondary data-[state=active]:text-white transition-all"
                 >
                   Personal
                 </TabsTrigger>
                 <TabsTrigger
                   value="business"
-                  className="rounded-full text-lg py-3 data-[state=active]:bg-secondary data-[state=active]:text-white transition-all"
+                  className="rounded-full text-2xl py-3 data-[state=active]:bg-secondary data-[state=active]:text-white transition-all"
                 >
                   Business
                 </TabsTrigger>
