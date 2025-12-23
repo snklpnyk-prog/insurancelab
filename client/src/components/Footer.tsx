@@ -82,19 +82,20 @@ export default function Footer() {
             <h4 className="text-white font-bold text-lg mb-6">Services</h4>
             <ul className="space-y-3 text-sm">
               {[
-                "Personal Insurance",
-                "Business Insurance",
-                "Investments & Loans",
-                "Claim Services",
-              ].map((link) => (
-                <li key={link}>
+                { name: "Personal Insurance", href: "/services" },
+                { name: "Business Insurance", href: "/services" },
+                { name: "Investments & Loans", href: "/investment" },
+                { name: "Claim Services", href: "/claims" },
+                { name: "NRI Services", href: "/nri" },
+              ].map((item) => (
+                <li key={item.name}>
                   <a
-                    href="/services"
+                    href={item.href}
                     className="hover:text-secondary transition-colors flex items-center gap-2"
-                    data-testid={`link-service-${link.toLowerCase().replace(/\s+/g, "-")}`}
+                    data-testid={`link-service-${item.name.toLowerCase().replace(/\s+/g, "-")}`}
                   >
                     <span className="w-1.5 h-1.5 bg-secondary rounded-full"></span>
-                    {link}
+                    {item.name}
                   </a>
                 </li>
               ))}

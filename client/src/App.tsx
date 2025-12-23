@@ -12,6 +12,7 @@ import Investment from "@/pages/investment";
 import Claims from "@/pages/claims";
 import Blog from "@/pages/blog";
 import BlogDetail from "@/pages/blog-detail";
+import NRI from "@/pages/nri";
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/services" component={Services} />
       <Route path="/investment" component={Investment} />
       <Route path="/claims" component={Claims} />
+      <Route path="/nri" component={NRI} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:id" component={BlogDetail} />
       <Route path="/contact" component={Contact} />

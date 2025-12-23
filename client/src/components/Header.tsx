@@ -32,6 +32,7 @@ export default function Header({ isTransparent = false }: HeaderProps) {
     { href: "/services", label: "Services" },
     { href: "/investment", label: "Investment & Loan" },
     { href: "/claims", label: "Claim Services" },
+    { href: "/nri", label: "NRI Services" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];

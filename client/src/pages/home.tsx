@@ -40,7 +40,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 // Assets
-import heroBg from "@assets/generated_images/insurance_consultation_with_happy_family.png";
+import heroBg from "@assets/generated_images/What-is-Insurance.jpg";
 import aboutImg from "@assets/generated_images/insurancebaout.png";
 import whyUsImg from "@assets/generated_images/insurancewhychooseus.png";
 import ctaBg from "@assets/generated_images/abstract_royal_blue_background.png";
