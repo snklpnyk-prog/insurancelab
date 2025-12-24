@@ -38,38 +38,45 @@ export default function Services() {
       title: "Motor Insurance",
       desc: "Cover your car or bike with cashless repairs and add-ons.",
       icon: Car,
+      link: "/services/motor-insurance"
     },
     {
       title: "Health Insurance",
       desc: "Plans for individuals and families with cashless hospitalization.",
       icon: Activity,
+      link: "/services/health-insurance"
     },
     {
       title: "Life Insurance",
       desc: "Secure your family’s future with life coverage.",
       icon: User,
+      link: "/services/life-insurance"
     },
     {
       title: "Term Insurance",
       desc: "Pure protection with high cover at affordable premiums.",
       icon: Shield,
+      link: "/services/life-insurance" // Mapping to life for now
     },
     {
       title: "Home Insurance",
       desc: "Protect your home and contents against loss and damage.",
       icon: HomeIcon,
+      link: "/services/home-insurance"
     },
     {
       title: "Travel Insurance",
       desc: "Trip protection for delays, medical emergencies, and baggage.",
       icon: Plane,
+      link: "/services/travel-insurance"
     },
     {
       title: "Personal Accident",
       desc: "Financial protection against accidental injury or death.",
       icon: Zap,
+      link: "/services/health-insurance" // Mapping to health for now
     },
-    { title: "Pet Insurance", desc: "Plans for pet protection.", icon: Heart },
+    { title: "Pet Insurance", desc: "Plans for pet protection.", icon: Heart, link: "/services/health-insurance" },
   ];
 
   const businessServices = [
@@ -236,21 +243,22 @@ export default function Services() {
 
                 <div className="grid sm:grid-cols-2 gap-6">
                   {personalServices.map((service, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.05 }}
-                      className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group"
-                    >
-                      <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:text-white transition-colors">
-                        <service.icon size={24} />
-                      </div>
-                      <h3 className="font-bold text-lg text-primary mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-slate-600 text-sm">{service.desc}</p>
-                    </motion.div>
+                    <Link key={i} href={service.link || "/services"}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.05 }}
+                        className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group cursor-pointer h-full"
+                      >
+                        <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:text-white transition-colors">
+                          <service.icon size={24} />
+                        </div>
+                        <h3 className="font-bold text-lg text-primary mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-slate-600 text-sm">{service.desc}</p>
+                      </motion.div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -269,42 +277,43 @@ export default function Services() {
               <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
                 <div className="space-y-8 order-2 lg:order-1">
                   {businessServices.map((group, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100"
-                    >
-                      <h3 className="text-2xl font-bold text-primary mb-2 flex items-center gap-3">
-                        {i === 0 && <Shield className="text-secondary" />}
-                        {i === 1 && <Building2 className="text-secondary" />}
-                        {i === 2 && <HardHat className="text-secondary" />}
-                        {i === 3 && <Anchor className="text-secondary" />}
-                        {i === 4 && <Users className="text-secondary" />}
-                        {group.category}
-                      </h3>
-                      <p className="text-slate-600 mb-6">{group.desc}</p>
+                    <Link key={i} href="/services/business-insurance">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                        className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 cursor-pointer hover:shadow-md transition-shadow mb-8"
+                      >
+                        <h3 className="text-2xl font-bold text-primary mb-2 flex items-center gap-3">
+                          {i === 0 && <Shield className="text-secondary" />}
+                          {i === 1 && <Building2 className="text-secondary" />}
+                          {i === 2 && <HardHat className="text-secondary" />}
+                          {i === 3 && <Anchor className="text-secondary" />}
+                          {i === 4 && <Users className="text-secondary" />}
+                          {group.category}
+                        </h3>
+                        <p className="text-slate-600 mb-6">{group.desc}</p>
 
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {group.items.map((item, j) => (
-                          <div key={j} className="flex items-start gap-3">
-                            <CheckCircle
-                              size={18}
-                              className="text-secondary mt-1 shrink-0"
-                            />
-                            <div>
-                              <div className="font-bold text-slate-800 text-sm">
-                                {item.name}
-                              </div>
-                              <div className="text-xs text-slate-500">
-                                {item.detail}
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {group.items.map((item, j) => (
+                            <div key={j} className="flex items-start gap-3">
+                              <CheckCircle
+                                size={18}
+                                className="text-secondary mt-1 shrink-0"
+                              />
+                              <div>
+                                <div className="font-bold text-slate-800 text-sm">
+                                  {item.name}
+                                </div>
+                                <div className="text-xs text-slate-500">
+                                  {item.detail}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </Link>
                   ))}
                 </div>
 

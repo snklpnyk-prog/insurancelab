@@ -13,6 +13,7 @@ import Claims from "@/pages/claims";
 import Blog from "@/pages/blog";
 import BlogDetail from "@/pages/blog-detail";
 import NRI from "@/pages/nri";
+import ServiceDetail from "@/pages/service-detail";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
+      <Route path="/services/:type" component={ServiceDetail} />
       <Route path="/investment" component={Investment} />
       <Route path="/claims" component={Claims} />
       <Route path="/nri" component={NRI} />

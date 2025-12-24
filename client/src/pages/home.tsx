@@ -40,17 +40,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 // Assets
-import heroBg from "@assets/generated_images/What-is-Insurance.jpg";
+import heroBg from "@assets/generated_images/ChatGPT Image Dec 23, 2025, 06_27_00 PM.png";
 import aboutImg from "@assets/generated_images/insurancebaout.png";
-import whyUsImg from "@assets/generated_images/insurancewhychooseus.png";
+import whyUsImg from "@assets/generated_images/istockphoto-1298816514-612x612.jpg";
 import ctaBg from "@assets/generated_images/abstract_royal_blue_background.png";
 import blog1 from "@assets/generated_images/home_insurance_concept.png";
 import blog2 from "@assets/generated_images/business_growth_analysis.png";
 import blog3 from "@assets/generated_images/car_insurance_assistance.png";
-import serviceHome from "@assets/generated_images/luxury_home_interior_design.png";
-import serviceHealth from "@assets/generated_images/professional_health_insurance_concept.png";
-import serviceBusiness from "@assets/generated_images/modern_business_office_building.png";
-import serviceCar from "@assets/generated_images/premium_luxury_car_photography.png";
+import serviceHome from "@assets/generated_images/home insurance.jpg";
+import serviceHealth from "@assets/generated_images/lifeinsurance.jpg";
+import serviceBusiness from "@assets/generated_images/businessinsuranceone.jpg";
+import serviceCar from "@assets/generated_images/carinsurance.jpg";
 import personalinsurance from "@assets/generated_images/insurance_four.avif";
 import businessinsurance from "@assets/generated_images/businessinsurance.jpg";
 import investment from "@assets/generated_images/investment-5318530_1280.jpg";

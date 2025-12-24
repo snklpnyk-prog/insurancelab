@@ -28,12 +28,11 @@ export default function Header({ isTransparent = false }: HeaderProps) {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
     { href: "/investment", label: "Investment & Loan" },
     { href: "/claims", label: "Claim Services" },
-    { href: "/nri", label: "NRI Services" },
-    { href: "/blog", label: "Blog" },
+    { href: "/services", label: "Services" },
+    { href: "/about", label: "About" },
+    { href: "/nri", label: "NRI" },
     { href: "/contact", label: "Contact" },
   ];
 
