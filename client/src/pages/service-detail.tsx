@@ -42,6 +42,10 @@ import businessImg from "@assets/generated_images/business_insurance_concept.png
 import lifeImg from "@assets/generated_images/life_insurance_concept.png";
 import travelImg from "@assets/generated_images/travel_insurance_concept.png";
 
+import termImg from "@assets/generated_images/term_insurance_concept.png";
+import accidentImg from "@assets/generated_images/personal_accident_insurance_concept.png";
+import petImg from "@assets/generated_images/pet_insurance_concept.png";
+
 // Data Configuration
 const servicesData: Record<string, any> = {
   "health-insurance": {
@@ -300,11 +304,139 @@ const servicesData: Record<string, any> = {
       },
     ],
   },
+  "term-insurance": {
+    title: "Term Insurance",
+    subtitle: "Pure Protection for Your Loved Ones",
+    description: "Secure your family's financial future with high life cover at affordable premiums. Term insurance ensures your dependents are taken care of in your absence.",
+    image: termImg,
+    icon: Shield,
+    whyMatters: {
+      title: "Why Term Insurance Matters",
+      highlights: [
+        {
+          title: "High Coverage",
+          desc: "Get large life cover at very low premium rates.",
+          icon: "🛡️",
+        },
+        {
+          title: "Family Security",
+          desc: "Ensures your family can maintain their lifestyle in your absence.",
+          icon: "👨‍👩‍👧‍👦",
+        },
+        {
+          title: "Tax Benefits",
+          desc: "Save tax up to ₹1.5 Lakhs under Section 80C.",
+          icon: "💰",
+        },
+      ],
+      summary: "Small premium today, big security for tomorrow.",
+    },
+    faqs: [
+      {
+        q: "What happens if I survive the term?",
+        a: "Standard term plans do not offer maturity benefits. However, Return of Premium (ROP) plans refund the premiums paid if you survive the policy term.",
+      },
+      {
+        q: "Can I add riders to my term plan?",
+        a: "Yes, you can add riders like Critical Illness, Accidental Death, and Waiver of Premium for enhanced protection.",
+      },
+    ],
+  },
+  "personal-accident-insurance": {
+    title: "Personal Accident Insurance",
+    subtitle: "Protection Against Life's Uncertainties",
+    description: "Accidents can happen anytime. Our personal accident insurance covers death, disability, and income loss due to accidents, ensuring financial stability.",
+    image: accidentImg,
+    icon: Zap,
+    whyMatters: {
+      title: "Why Personal Accident Insurance Matters",
+      highlights: [
+        {
+          title: "Disability Cover",
+          desc: "Covers permanent total and partial disabilities.",
+          icon: "♿",
+        },
+        {
+          title: "Income Loss",
+          desc: "Provides weekly compensation for temporary total disability.",
+          icon: "📉",
+        },
+        {
+          title: "Global Coverage",
+          desc: "24/7 worldwide protection against accidents.",
+          icon: "🌍",
+        },
+      ],
+      summary: "Stay prepared for the unexpected.",
+    },
+    faqs: [
+      {
+        q: "Does health insurance cover accidents?",
+        a: "Health insurance covers hospitalization costs, but Personal Accident insurance provides a lump sum payout for death or disability, which health plans may not cover.",
+      },
+      {
+        q: "Is medical check-up required?",
+        a: "Usually, Personal Accident policies do not require a pre-policy medical check-up.",
+      },
+    ],
+  },
+  "pet-insurance": {
+    title: "Pet Insurance",
+    subtitle: "Care for Your Furry Friends",
+    description: "Pets are family too. Our pet insurance covers veterinary expenses, surgery costs, and third-party liability for your dogs and cats.",
+    image: petImg,
+    icon: User, // Using generic user/heart icon as fallback if specific isn't imported, but Heart was used in services.tsx
+    whyMatters: {
+      title: "Why Pet Insurance Matters",
+      highlights: [
+        {
+          title: "Vet Fees",
+          desc: "Covers unexpected veterinary bills and treatments.",
+          icon: "🩺",
+        },
+        {
+          title: "Surgery Cover",
+          desc: "Reimburses costs for necessary surgeries and hospitalization.",
+          icon: "🏥",
+        },
+        {
+          title: "Third-Party Liability",
+          desc: "Protects against legal liability if your pet causes injury or damage.",
+          icon: "⚖️",
+        },
+      ],
+      summary: "Best care for your loyal companions.",
+    },
+    faqs: [
+      {
+        q: "Which pets are covered?",
+        a: "Most plans cover dogs and cats. Some insurers may cover other pets too.",
+      },
+      {
+        q: "Is there an age limit for pets?",
+        a: "Yes, usually pets between 8 weeks to 8 years are eligible for new policies.",
+      },
+    ],
+  },
 };
 
 export default function ServiceDetail() {
   const { type } = useParams();
   const service = servicesData[type as string];
+
+  const handleQuoteSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const serviceType = (form.elements.namedItem("serviceType") as HTMLInputElement).value || type;
+    const query = (form.elements.namedItem("query") as HTMLTextAreaElement).value;
+
+    const message = `*New Quote Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${serviceType}\n*Query:* ${query}`;
+    const whatsappUrl = `https://wa.me/917303177489?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   if (!service) {
     return (
@@ -453,42 +585,33 @@ export default function ServiceDetail() {
                     Fill out the form below and our experts will get back to you with the best plans.
                   </p>
 
-                  <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                  <form className="space-y-4" onSubmit={handleQuoteSubmit}>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-700">Company Name / Name</label>
-                      <Input placeholder="Enter your name" className="bg-slate-50" />
+                      <Input name="name" placeholder="Enter your name" className="bg-slate-50" required />
                     </div>
 
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-700">Phone Number</label>
-                      <Input placeholder="Enter your phone number" className="bg-slate-50" />
+                      <Input name="phone" placeholder="Enter your phone number" className="bg-slate-50" required />
                     </div>
 
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-700">Email</label>
-                      <Input placeholder="Enter your email address" className="bg-slate-50" />
+                      <Input name="email" placeholder="Enter your email address" className="bg-slate-50" />
                     </div>
 
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-700">Service Type</label>
-                      <Select defaultValue={type}>
-                        <SelectTrigger className="bg-slate-50">
-                          <SelectValue placeholder="Select service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="health-insurance">Health Insurance</SelectItem>
-                          <SelectItem value="motor-insurance">Motor Insurance</SelectItem>
-                          <SelectItem value="home-insurance">Home Insurance</SelectItem>
-                          <SelectItem value="business-insurance">Business Insurance</SelectItem>
-                          <SelectItem value="life-insurance">Life Insurance</SelectItem>
-                          <SelectItem value="travel-insurance">Travel Insurance</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <input type="hidden" name="serviceType" value={type} />
+                      <div className="p-3 bg-slate-50 border rounded-md text-slate-700 font-medium capitalize">
+                        {service.title}
+                      </div>
                     </div>
 
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-700">Query</label>
-                      <Textarea placeholder="Write your message here" className="bg-slate-50 resize-none" rows={3} />
+                      <Textarea name="query" placeholder="Write your message here" className="bg-slate-50 resize-none" rows={3} />
                     </div>
 
                     <div className="space-y-2">

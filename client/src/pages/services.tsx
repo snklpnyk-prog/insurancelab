@@ -56,7 +56,7 @@ export default function Services() {
       title: "Term Insurance",
       desc: "Pure protection with high cover at affordable premiums.",
       icon: Shield,
-      link: "/services/life-insurance" // Mapping to life for now
+      link: "/services/term-insurance"
     },
     {
       title: "Home Insurance",
@@ -74,9 +74,9 @@ export default function Services() {
       title: "Personal Accident",
       desc: "Financial protection against accidental injury or death.",
       icon: Zap,
-      link: "/services/health-insurance" // Mapping to health for now
+      link: "/services/personal-accident-insurance"
     },
-    { title: "Pet Insurance", desc: "Plans for pet protection.", icon: Heart, link: "/services/health-insurance" },
+    { title: "Pet Insurance", desc: "Plans for pet protection.", icon: Heart, link: "/services/pet-insurance" },
   ];
 
   const businessServices = [
