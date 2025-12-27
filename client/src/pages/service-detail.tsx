@@ -988,10 +988,10 @@ const servicesData: Record<string, any> = {
   },
 };
 
-const handleQuoteSubmit = (e) => {
+const handleQuoteSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  const formData = new FormData(e.target);
+  const formData = new FormData(e.currentTarget);
 
   const name = formData.get("name");
   const phone = formData.get("phone");

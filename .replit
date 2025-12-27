@@ -8,7 +8,7 @@ channel = "stable-24_05"
 [deployment]
 deploymentTarget = "static"
 build = ["npm", "run", "build"]
-publicDir = "dist/public"
+publicDir = "dist"
 
 [env]
 PORT = "5000"
@@ -31,16 +31,12 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run dev:client"
-waitForPort = 5000
+args = "npm run dev"
+waitForPort = 5173
 
 [agent]
 mockupState = "MOCKUP"
 
 [[ports]]
-localPort = 5000
+localPort = 5173
 externalPort = 80
-
-[[ports]]
-localPort = 5001
-externalPort = 3000
