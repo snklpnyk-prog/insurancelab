@@ -17,7 +17,7 @@ export default function Footer() {
             <img
               src={logo}
               alt="Insurance Lab"
-              className="h-10 w-auto mb-6 bg-white"
+              className="h-12 p-1 w-auto mb-6 bg-white"
               data-testid="img-logo-footer"
             />
             <p className="mb-6 leading-relaxed text-sm">

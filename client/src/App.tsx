@@ -14,6 +14,7 @@ import Blog from "@/pages/blog";
 import BlogDetail from "@/pages/blog-detail";
 import NRI from "@/pages/nri";
 import ServiceDetail from "@/pages/service-detail";
+import GetQuote from "@/pages/get-quote";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:id" component={BlogDetail} />
       <Route path="/contact" component={Contact} />
+      <Route path="/get-quote" component={GetQuote} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -72,13 +72,14 @@ export default function Header({ isTransparent = false }: HeaderProps) {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button
-              className="bg-secondary hover:bg-secondary/90 text-white font-bold px-6 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
-              onClick={() => window.open(whatsappUrl, "_blank")}
-              data-testid="button-get-quote"
-            >
-              GET A QUOTE
-            </Button>
+            <Link href="/get-quote">
+              <Button
+                className="bg-secondary hover:bg-secondary/90 text-white font-bold px-6 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
+                data-testid="button-get-quote"
+              >
+                GET A QUOTE
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -124,13 +125,15 @@ export default function Header({ isTransparent = false }: HeaderProps) {
                   </Link>
                 ))}
 
-                <Button
-                  className="bg-secondary text-white w-full mt-4 cursor-pointer py-6"
-                  onClick={() => window.open(whatsappUrl, "_blank")}
-                  data-testid="button-mobile-quote"
-                >
-                  GET A QUOTE
-                </Button>
+                <Link href="/get-quote">
+                  <Button
+                    className="bg-secondary text-white w-full mt-4 cursor-pointer py-6"
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid="button-mobile-quote"
+                  >
+                    GET A QUOTE
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           )}
