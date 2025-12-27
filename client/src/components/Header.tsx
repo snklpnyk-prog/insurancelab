@@ -28,9 +28,9 @@ export default function Header({ isTransparent = false }: HeaderProps) {
 
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/services", label: "Insurance" },
     { href: "/investment", label: "Investment & Loan" },
     { href: "/claims", label: "Claim Services" },
-    { href: "/services", label: "Services" },
     { href: "/about", label: "About" },
     { href: "/nri", label: "NRI" },
     { href: "/contact", label: "Contact" },

@@ -1,0 +1,147 @@
+Act as a Senior Technical SEO Engineer + Content Strategist with 10+ years of experience in Local SEO, content strategy, and Google indexing systems.
+
+OBJECTIVE:
+Fully optimize the existing website for Google Organic Search and Local SEO WITHOUT changing:
+- Page structure
+- URLs
+- Design layout
+- Navigation
+- Framework or tech stack
+
+Only improve CONTENT, META DATA, SEMANTIC HTML, SEO FILES, and SEARCH SIGNALS.
+
+==============================
+STEP 1: PAGE-LEVEL SEO OPTIMIZATION
+==============================
+For EVERY existing page:
+
+- Write an SEO-optimized Title Tag (55–60 characters)
+- Write a compelling Meta Description (150–160 characters, CTA included)
+- Ensure ONLY ONE <h1> per page (primary keyword focused)
+- Add supporting <h2> and <h3> headings using semantic and LSI keywords
+- Optimize keyword density naturally (no stuffing)
+
+==============================
+STEP 2: CONTENT ENHANCEMENT (NO STRUCTURE CHANGE)
+==============================
+Enhance existing content to be:
+- EEAT-focused (Experience, Expertise, Authority, Trust)
+- Human-readable, professional, and conversion-oriented
+- Location-based (City + Service keywords)
+
+Add trust signals:
+- Years of experience
+- Certifications / memberships
+- Professional approach & outcomes
+- Service benefits
+
+Add FAQ sections using real user search-intent queries (FAQs must be visible on page).
+
+==============================
+STEP 3: LOCAL SEO OPTIMIZATION
+==============================
+Optimize for Google Maps and local ranking:
+- Inject geo-modifiers naturally (City, Area, Landmark)
+- Ensure NAP consistency across all pages
+- Align homepage and service pages with Google Business Profile
+- Optimize for:
+“Service + City”
+“Best Service in City”
+“Service near me”
+
+==============================
+STEP 4: TECHNICAL ON-PAGE SEO FIXES
+==============================
+- Improve semantic HTML usage:
+<header>, <main>, <section>, <article>, <footer>
+- Add descriptive ALT text to ALL images
+- Add internal links between relevant pages (keyword-rich anchor text)
+- Improve readability with short paragraphs, bullets, and CTAs
+
+==============================
+STEP 5: SCHEMA MARKUP (STATIC JSON-LD)
+==============================
+Generate and inject STATIC JSON-LD schema:
+
+- LocalBusiness (Homepage)
+- Service (Each service page)
+- FAQPage (Where FAQs exist)
+- Breadcrumb (If applicable)
+- Article schema (For blog posts)
+- Organization schema
+
+Schema must be:
+- Valid JSON
+- Placed before </head> or immediately after <body>
+- Detectable by schema.org validator
+
+==============================
+STEP 6: CONVERSION OPTIMIZATION
+==============================
+- Optimize CTA copy (Call, WhatsApp, Book Appointment)
+- Add testimonials, trust badges, service guarantees
+- Improve hero messaging for clarity and intent
+
+==============================
+STEP 7: SEO BLOG CREATION & REWRITING (INDEX-READY)
+==============================
+Create or rewrite AT LEAST 10 SEO-optimized blog posts that:
+
+- Focus on the MAIN primary keyword
+- Target related and long-tail keywords
+- Are written for search intent (informational + local)
+- Follow EEAT and helpful content guidelines
+- Are plagiarism-free and AI-detection safe
+
+For EACH blog post provide:
+- SEO Title (≤60 characters)
+- Meta Description (≤160 characters)
+- One keyword-focused H1
+- Structured H2/H3 headings
+- 800–1200 words of high-quality content
+- Internal links to service pages
+- FAQ section (optional but recommended)
+- Article schema (JSON-LD)
+
+Blogs must be:
+- Indexable
+- Crawl-friendly
+- Natural (no keyword stuffing)
+
+==============================
+STEP 8: XML SITEMAP GENERATION
+==============================
+Generate a valid sitemap.xml including:
+- Homepage
+- Service pages
+- Blog posts
+- About / Contact pages
+
+Use proper <loc>, <lastmod>, and <priority>.
+Save as /sitemap.xml.
+
+==============================
+STEP 9: ROBOTS.TXT GENERATION
+==============================
+Generate a clean robots.txt that:
+- Allows all important pages
+- Blocks admin/system paths
+- References sitemap.xml
+- Follows Google best practices
+
+==============================
+OUTPUT REQUIREMENTS
+==============================
+Provide outputs in clearly separated sections:
+
+1) Optimized page-wise content
+2) Title tags & meta descriptions
+3) Primary + secondary keyword mapping
+4) All JSON-LD schema code blocks
+5) 10 SEO blog posts (complete)
+6) sitemap.xml code
+7) robots.txt code
+8) SEO implementation checklist
+
+Follow Google SEO best practices (2025).
+Ensure content is human-like, natural, and AI-detection safe.

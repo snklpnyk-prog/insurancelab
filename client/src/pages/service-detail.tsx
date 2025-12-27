@@ -494,6 +494,48 @@ export default function ServiceDetail() {
             <p className="text-xl text-slate-100 max-w-2xl">
               {service.subtitle}
             </p>
+            
+            <script type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "name": service.title,
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "Insurance Lab",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Indore",
+                    "addressRegion": "Madhya Pradesh",
+                    "addressCountry": "IN"
+                  }
+                },
+                "areaServed": {
+                  "@type": "City",
+                  "name": "Indore"
+                },
+                "description": service.description,
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "INR",
+                  "availability": "https://schema.org/InStock"
+                }
+              })}
+            </script>
+            <script type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": service.faqs.map((faq: any) => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
+              })}
+            </script>
           </motion.div>
         </div>
       </section>

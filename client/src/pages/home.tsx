@@ -40,7 +40,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 // Assets
-import heroBg from "@assets/generated_images/ChatGPT Image Dec 23, 2025, 06_27_00 PM.png";
+import heroBg from "@assets/generated_images/Insurancelab.png";
 import aboutImg from "@assets/generated_images/insurancebaout.png";
 import whyUsImg from "@assets/generated_images/istockphoto-1298816514-612x612.jpg";
 import ctaBg from "@assets/generated_images/abstract_royal_blue_background.png";
@@ -108,9 +108,9 @@ export default function Home() {
           <img
             src={heroBg}
             alt="Insurance Consultation"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/30 to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-white">
@@ -125,9 +125,9 @@ export default function Home() {
               className="flex items-center gap-2 mb-2 mt-5"
             >
               <span className="h-1 w-10 bg-secondary inline-block rounded-full"></span>
-              <span className="text-secondary font-bold uppercase tracking-widest text-sm">
-                Welcome to Insurance Lab
-              </span>
+              <h2 className="text-secondary font-bold uppercase tracking-widest text-sm">
+                Best Insurance Service in Indore
+              </h2>
             </motion.div>
 
             <motion.h1
@@ -138,9 +138,19 @@ export default function Home() {
               <span className="text-secondary">stage of life</span>
             </motion.h1>
 
+            <script type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "Insurance Lab - Best Insurance Service in Indore",
+                "description": "Leading insurance consultancy in Indore offering Health, Life, and Business insurance. IRDAI certified experts.",
+                "url": "https://insurancelab.in/"
+              })}
+            </script>
+
             <motion.p
               variants={fadeIn}
-              className="text-lg md:text-xl text-slate-200 mb-8 max-w-lg leading-relaxed"
+              className="text-lg md:text-xl text-slate-100 mb-8 max-w-lg leading-relaxed"
             >
               We provide scientific risk assessment and tailored protection
               plans for families and businesses. Your future, secured by our
@@ -158,7 +168,7 @@ export default function Home() {
               >
                 GET STARTED
               </Button>
-              <a href="#services" className="w-full sm:w-auto">
+              <a href="/services" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
@@ -260,9 +270,12 @@ export default function Home() {
               </ul>
 
               <div className="flex gap-6 items-center">
-                <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg shadow-lg">
-                  More About Us
-                </Button>
+                <a href="/about">
+                  {" "}
+                  <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg shadow-lg">
+                    More About Us
+                  </Button>
+                </a>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full border-2 border-secondary flex items-center justify-center text-secondary">
                     <Phone size={20} />
@@ -271,9 +284,11 @@ export default function Home() {
                     <p className="text-xs text-slate-500 uppercase font-bold">
                       Call Anytime
                     </p>
-                    <p className="font-bold text-primary text-lg">
-                      +91 73031 77489
-                    </p>
+                    <a href="tel:+917303177489">
+                      <p className="font-bold text-primary text-lg">
+                        +91 73031 77489
+                      </p>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -351,11 +366,13 @@ export default function Home() {
                     {service.desc}
                   </p>
                   <a
-                    href="#"
+                    href="https://wa.me/917303177489"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm font-bold text-primary uppercase group-hover:translate-x-2 transition-transform"
                     data-testid={`link-service-details-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
                   >
-                    Read More{" "}
+                    Know More{" "}
                     <ArrowRight size={16} className="text-secondary" />
                   </a>
                 </div>
@@ -658,10 +675,11 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-
-              <Button className="mt-10 bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full shadow-lg">
-                Discover More
-              </Button>
+              <a href="/investment">
+                <Button className="mt-10 bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-full shadow-lg">
+                  Discover More
+                </Button>
+              </a>
             </motion.div>
 
             <motion.div
@@ -738,16 +756,46 @@ export default function Home() {
                   have about our coverage options.
                 </p>
 
-                <form className="space-y-4">
+                <form
+                  className="space-y-4"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    
+                    const form = e.currentTarget;
+                    const nameInput = form.elements[0] as HTMLInputElement;
+                    const emailInput = form.elements[1] as HTMLInputElement;
+                    
+                    const name = nameInput.value;
+                    const email = emailInput.value;
+
+                    const text = `Hello, I would like to Know More About the Insurance Services.
+
+                Name: ${name}
+                Email: ${email}`;
+
+                    const encodedText = encodeURIComponent(text);
+
+                    window.open(
+                      `https://wa.me/917303177489?text=${encodedText}`,
+                      "_blank",
+                    );
+                  }}
+                >
                   <Input
                     placeholder="Your Name"
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 rounded-xl"
+                    required
                   />
                   <Input
                     placeholder="Email Address"
+                    type="email"
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 rounded-xl"
+                    required
                   />
-                  <Button className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold h-12 rounded-xl">
+                  <Button
+                    type="submit"
+                    className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold h-12 rounded-xl"
+                  >
                     Send Message
                   </Button>
                 </form>
