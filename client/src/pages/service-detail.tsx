@@ -14,6 +14,8 @@ import {
   Plane,
   Zap,
   HelpCircle,
+  Users,
+  HardHat, // Ensure this is imported
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -46,8 +48,391 @@ import termImg from "@assets/generated_images/term_insurance_concept.png";
 import accidentImg from "@assets/generated_images/personal_accident_insurance_concept.png";
 import petImg from "@assets/generated_images/pet_insurance_concept.png";
 
+import doImg from "@assets/generated_images/directors_and_officers_insurance_concept.png";
+import piImg from "@assets/generated_images/professional_indemnity_insurance_concept.png";
+import cglImg from "@assets/generated_images/commercial_general_liability_insurance_concept.png";
+import cyberImg from "@assets/generated_images/cyber_risk_insurance_concept.png";
+import fireImg from "@assets/generated_images/fire_insurance_concept.png";
+import marineImg from "@assets/generated_images/marine_cargo_insurance_concept.png";
+
 // Data Configuration
 const servicesData: Record<string, any> = {
+  "directors-and-officers-insurance": {
+    title: "Directors & Officers Liability",
+    subtitle: "Protect Your Leadership",
+    description: "Directors and Officers (D&O) Liability Insurance protects the personal assets of corporate directors and officers, and their spouses, in the event they are personally sued by employees, vendors, competitors, investors, customers, or other parties, for actual or alleged wrongful acts in managing a company.",
+    image: doImg,
+    icon: Shield,
+    whyMatters: {
+      title: "Why D&O Insurance Matters",
+      highlights: [
+        {
+          title: "Personal Asset Protection",
+          desc: "Safeguards personal wealth of directors against legal claims.",
+          icon: "💼",
+        },
+        {
+          title: "Legal Defense Costs",
+          desc: "Covers expensive legal fees for defense against lawsuits.",
+          icon: "⚖️",
+        },
+        {
+          title: "Regulatory Investigations",
+          desc: "Coverage for costs arising from official investigations.",
+          icon: "mj",
+        },
+      ],
+      summary: "Essential protection for corporate leadership.",
+    },
+    faqs: [
+      {
+        q: "Who needs D&O Insurance?",
+        a: "Any company with a board of directors or advisory committee, whether public, private, or non-profit.",
+      },
+      {
+        q: "Does it cover criminal acts?",
+        a: "No, D&O insurance typically excludes coverage for criminal fraud or illegal profits.",
+      },
+    ],
+  },
+  "professional-indemnity-insurance": {
+    title: "Professional Indemnity",
+    subtitle: "Coverage for Professional Advice",
+    description: "Professional Indemnity (PI) Insurance protects professionals such as architects, doctors, accountants, and consultants against claims of negligence or breach of duty arising from the services they provide.",
+    image: piImg,
+    icon: Briefcase,
+    whyMatters: {
+      title: "Why PI Insurance Matters",
+      highlights: [
+        {
+          title: "Negligence Claims",
+          desc: "Covers claims due to errors, omissions, or negligence.",
+          icon: "📝",
+        },
+        {
+          title: "Reputation Protection",
+          desc: "Helps manage and mitigate damage to professional reputation.",
+          icon: "🌟",
+        },
+        {
+          title: "Legal Defense",
+          desc: "Pays for legal costs to defend against claims.",
+          icon: "⚖️",
+        },
+      ],
+      summary: "Secure your professional practice against errors.",
+    },
+    faqs: [
+      {
+        q: "Is PI Insurance mandatory?",
+        a: "It is often mandatory for certain professions like doctors, lawyers, and insurance brokers.",
+      },
+      {
+        q: "What is the retroactive date?",
+        a: "It is the date from which your coverage begins. Claims arising from acts before this date are not covered.",
+      },
+    ],
+  },
+  "commercial-general-liability": {
+    title: "Commercial General Liability",
+    subtitle: "Comprehensive Third-Party Protection",
+    description: "Commercial General Liability (CGL) insurance protects your business against claims of bodily injury or property damage caused to third parties by your business operations, products, or premises.",
+    image: cglImg,
+    icon: Users,
+    whyMatters: {
+      title: "Why CGL Insurance Matters",
+      highlights: [
+        {
+          title: "Bodily Injury",
+          desc: "Covers medical costs if a third party is injured on your premises.",
+          icon: "🤕",
+        },
+        {
+          title: "Property Damage",
+          desc: "Compensates for damage to third-party property.",
+          icon: "🏚️",
+        },
+        {
+          title: "Advertising Injury",
+          desc: "Covers claims of libel, slander, or copyright infringement.",
+          icon: "📢",
+        },
+      ],
+      summary: "Broad protection for your business liabilities.",
+    },
+    faqs: [
+      {
+        q: "Does CGL cover employee injuries?",
+        a: "No, employee injuries are typically covered under Workmen Compensation Insurance.",
+      },
+    ],
+  },
+  "cyber-risk-insurance": {
+    title: "Cyber Risk Insurance",
+    subtitle: "Defend Against Digital Threats",
+    description: "In the digital age, Cyber Risk Insurance is crucial. It covers financial losses resulting from data breaches, cyber-attacks, ransomware, and other cyber incidents.",
+    image: cyberImg,
+    icon: Zap,
+    whyMatters: {
+      title: "Why Cyber Insurance Matters",
+      highlights: [
+        {
+          title: "Data Breach Costs",
+          desc: "Covers notification costs, credit monitoring, and forensics.",
+          icon: "💻",
+        },
+        {
+          title: "Ransomware",
+          desc: "Coverage for ransom payments and data restoration.",
+          icon: "🔒",
+        },
+        {
+          title: "Business Interruption",
+          desc: "Compensates for income loss during system downtime.",
+          icon: "📉",
+        },
+      ],
+      summary: "Stay secure in a connected world.",
+    },
+    faqs: [
+      {
+        q: "Is Cyber Insurance only for IT companies?",
+        a: "No, any business that handles sensitive customer data should have cyber insurance.",
+      },
+    ],
+  },
+  "fire-insurance": {
+    title: "Fire Insurance",
+    subtitle: "Protect Your Physical Assets",
+    description: "Standard Fire and Special Perils Policy covers your property against loss or damage due to fire, lightning, explosion, floods, storms, and other specified perils.",
+    image: fireImg,
+    icon: Zap, // Using Zap (Flame concept)
+    whyMatters: {
+      title: "Why Fire Insurance Matters",
+      highlights: [
+        {
+          title: "Building & Contents",
+          desc: "Covers the physical structure and goods inside.",
+          icon: "🏢",
+        },
+        {
+          title: "Natural Calamities",
+          desc: "Protection against floods, storms, and earthquakes.",
+          icon: "🌊",
+        },
+        {
+          title: "Man-made Perils",
+          desc: "Covers riots, strikes, and malicious damage.",
+          icon: "🔥",
+        },
+      ],
+      summary: "Solid protection for your physical investments.",
+    },
+    faqs: [
+      {
+        q: "Does it cover theft?",
+        a: "Standard fire policies do not cover burglary/theft unless added as an extension or separate policy.",
+      },
+    ],
+  },
+  "marine-cargo-insurance": {
+    title: "Marine Cargo Insurance",
+    subtitle: "Secure Your Goods in Transit",
+    description: "Marine Cargo Insurance covers loss or damage to goods during transit by sea, air, road, or rail. It is essential for importers, exporters, and logistics companies.",
+    image: marineImg,
+    icon: Plane,
+    whyMatters: {
+      title: "Why Marine Cargo Insurance Matters",
+      highlights: [
+        {
+          title: "Transit Risks",
+          desc: "Covers accidents, sinking, or derailment during transport.",
+          icon: "🚢",
+        },
+        {
+          title: "Loading/Unloading",
+          desc: "Protection against damage during handling.",
+          icon: "📦",
+        },
+        {
+          title: "Customs Duty",
+          desc: "Covers duty payable on damaged goods.",
+          icon: "🛃",
+        },
+      ],
+      summary: "Safe passage for your valuable cargo.",
+    },
+    faqs: [
+      {
+        q: "What is 'All Risk' coverage?",
+        a: "Institute Cargo Clauses (A) provides the widest coverage, often termed as 'All Risk', subject to exclusions.",
+      },
+    ],
+  },
+  "workmen-compensation": {
+    title: "Workmen Compensation",
+    subtitle: "Employee Safety Net",
+    description: "Workmen Compensation Insurance provides coverage for medical expenses and wage replacement to employees injured in the course of employment.",
+    image: businessImg,
+    icon: Users,
+    whyMatters: {
+      title: "Why Workmen Compensation Matters",
+      highlights: [
+        {
+          title: "Legal Compliance",
+          desc: "Mandatory for many businesses under the Workmen's Compensation Act.",
+          icon: "⚖️",
+        },
+        {
+          title: "Medical Expenses",
+          desc: "Covers hospitalization costs for work-related injuries.",
+          icon: "🏥",
+        },
+        {
+          title: "Disability Benefits",
+          desc: "Compensation for temporary or permanent disability.",
+          icon: "🤕",
+        },
+      ],
+      summary: "Take care of those who work for you.",
+    },
+    faqs: [
+      {
+        q: "Who is covered?",
+        a: "All employees, including contract workers, can be covered under this policy.",
+      },
+    ],
+  },
+   "product-liability-insurance": {
+    title: "Product Liability Insurance",
+    subtitle: "Consumer Safety Protection",
+    description: "Product Liability Insurance covers the cost of compensating claims for personal injury or property damage arising from products you have sold or supplied.",
+    image: cglImg, // Reusing CGL image
+    icon: Shield,
+    whyMatters: {
+      title: "Why Product Liability Matters",
+      highlights: [
+        {
+          title: "Defective Products",
+          desc: "Coverage against claims due to manufacturing defects.",
+          icon: "⚠️",
+        },
+        {
+          title: "Safety Failures",
+          desc: "Protection if your product causes harm to a user.",
+          icon: "🛡️",
+        },
+        {
+          title: "Legal Defense",
+          desc: "Covers legal costs for defending liability claims.",
+          icon: "⚖️",
+        },
+      ],
+      summary: "Build trust with your products safely.",
+    },
+    faqs: [
+      {
+        q: "Is it necessary for retailers?",
+        a: "Yes, even retailers can be held liable if they sell defective products.",
+      },
+    ],
+  },
+  "property-insurance": {
+    title: "Property Insurance",
+    subtitle: "Comprehensive Asset Coverage",
+    description: "Property insurance provides financial reimbursement to the owner or renter of a structure and its contents in the event of damage or theft.",
+    image: fireImg, // Reusing Fire image
+    icon: HomeIcon,
+    whyMatters: {
+      title: "Why Property Insurance Matters",
+      highlights: [
+        {
+          title: "Asset Protection",
+          desc: "Covers buildings, machinery, and stock.",
+          icon: "🏭",
+        },
+        {
+          title: "Risk Mitigation",
+          desc: "Reduces financial impact of unforeseen disasters.",
+          icon: "📉",
+        },
+      ],
+      summary: "Total protection for your business assets.",
+    },
+    faqs: [],
+  },
+  "machinery-breakdown": {
+    title: "Machinery Breakdown",
+    subtitle: "Operational Continuity",
+    description: "This policy covers financial loss incurred due to the sudden and accidental breakdown of machinery.",
+    image: businessImg,
+    icon: Zap,
+    whyMatters: {
+      title: "Why Machinery Breakdown Matters",
+      highlights: [
+        {
+          title: "Repair Costs",
+          desc: "Covers cost of parts and labor for repairs.",
+          icon: "🔧",
+        },
+        {
+          title: "Internal Damage",
+          desc: "Covers electrical and mechanical breakdowns.",
+          icon: "⚙️",
+        },
+      ],
+      summary: "Keep your operations running smoothly.",
+    },
+    faqs: [],
+  },
+  "engineering-insurance": {
+    title: "Engineering Insurance",
+    subtitle: "Project & Equipment Safety",
+    description: "Contractors All Risk (CAR) and Erection All Risk (EAR) policies provide comprehensive protection for construction projects and engineering risks.",
+    image: businessImg,
+    icon: HardHat, // Assuming HardHat is available or use generic
+    whyMatters: {
+      title: "Why Engineering Insurance Matters",
+      highlights: [
+        {
+          title: "Project Cover",
+          desc: "Covers civil works during construction.",
+          icon: "🏗️",
+        },
+        {
+          title: "Third Party",
+          desc: "Includes third-party liability at the project site.",
+          icon: "🚧",
+        },
+      ],
+      summary: "Build with confidence.",
+    },
+    faqs: [],
+  },
+  "group-health-insurance": {
+    title: "Group Health Insurance",
+    subtitle: "Employee Wellness",
+    description: "Provide comprehensive health coverage to your employees and their families.",
+    image: healthImg,
+    icon: Activity,
+    whyMatters: {
+      title: "Why Group Health Matters",
+      highlights: [
+        {
+          title: "Employee Retention",
+          desc: "A key benefit to attract and retain talent.",
+          icon: "🤝",
+        },
+        {
+          title: "Wellness",
+          desc: "Ensures workforce health and productivity.",
+          icon: "❤️",
+        },
+      ],
+      summary: "Invest in your team's health.",
+    },
+    faqs: [],
+  },
   "health-insurance": {
     title: "Health Insurance",
     subtitle: "Comprehensive Health Coverage for You & Your Family",

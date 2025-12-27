@@ -87,26 +87,32 @@ export default function Services() {
         {
           name: "Directors & Officers",
           detail: "Safeguards company directors against managerial liability.",
+          link: "/services/directors-and-officers-insurance",
         },
         {
           name: "Professional Indemnity",
           detail: "Protects professionals against negligence claims.",
+          link: "/services/professional-indemnity-insurance",
         },
         {
           name: "Commercial General Liability",
           detail: "Covers injury or property damage claims.",
+          link: "/services/commercial-general-liability",
         },
         {
           name: "Product Liability",
           detail: "Covers liability from products you manufacture or sell.",
+          link: "/services/product-liability-insurance",
         },
         {
           name: "Cyber Risk",
           detail: "Protection against cyber-attacks and data breaches.",
+          link: "/services/cyber-risk-insurance",
         },
         {
           name: "Workmen Compensation",
           detail: "Coverage for workplace injuries and employee safety.",
+          link: "/services/workmen-compensation",
         },
       ],
     },
@@ -117,22 +123,27 @@ export default function Services() {
         {
           name: "Property Insurance",
           detail: "Covers physical business assets against risks.",
+          link: "/services/property-insurance",
         },
         {
           name: "Fire Insurance",
           detail: "Protection against fire damage to buildings/assets.",
+          link: "/services/fire-insurance",
         },
         {
           name: "Fire Loss of Profit",
           detail: "Insures income loss due to fire damage.",
+          link: "/services/fire-insurance", // Using same as fire for now or create distinct if needed
         },
         {
           name: "Machinery Breakdown",
           detail: "Protects against sudden breakdown of machinery.",
+          link: "/services/machinery-breakdown",
         },
         {
           name: "Office Package",
           detail: "Comprehensive protection for office and employees.",
+          link: "/services/business-insurance", // Generic fallback
         },
       ],
     },
@@ -143,6 +154,7 @@ export default function Services() {
         {
           name: "Engineering Insurance",
           detail: "Protects infrastructure and construction projects.",
+          link: "/services/engineering-insurance",
         },
       ],
     },
@@ -150,7 +162,11 @@ export default function Services() {
       category: "Marine",
       desc: "Covers goods while they move—road, air, or sea.",
       items: [
-        { name: "Marine Cargo", detail: "Insurance for goods shipped by sea." },
+        {
+          name: "Marine Cargo",
+          detail: "Insurance for goods shipped by sea.",
+          link: "/services/marine-cargo-insurance",
+        },
       ],
     },
     {
@@ -160,10 +176,12 @@ export default function Services() {
         {
           name: "Group Health Insurance",
           detail: "Provides health cover for employees.",
+          link: "/services/group-health-insurance",
         },
         {
           name: "Group Personal Accident",
           detail: "Coverage for accidental injuries to employees.",
+          link: "/services/personal-accident-insurance", // Reusing personal accident
         },
       ],
     },
@@ -296,24 +314,26 @@ export default function Services() {
 
                         <div className="grid md:grid-cols-2 gap-4">
                           {group.items.map((item, j) => (
-                            <div key={j} className="flex items-start gap-3">
-                              <CheckCircle
-                                size={18}
-                                className="text-secondary mt-1 shrink-0"
-                              />
-                              <div>
-                                <div className="font-bold text-slate-800 text-sm">
-                                  {item.name}
-                                </div>
-                                <div className="text-xs text-slate-500">
-                                  {item.detail}
+                            <Link key={j} href={item.link || "/services/business-insurance"}>
+                              <div className="flex items-start gap-3 cursor-pointer group/item hover:bg-slate-50 p-2 rounded-lg transition-colors">
+                                <CheckCircle
+                                  size={18}
+                                  className="text-secondary mt-1 shrink-0"
+                                />
+                                <div>
+                                  <div className="font-bold text-slate-800 text-sm group-hover/item:text-secondary transition-colors">
+                                    {item.name}
+                                  </div>
+                                  <div className="text-xs text-slate-500">
+                                    {item.detail}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
+                            </Link>
                           ))}
                         </div>
                       </motion.div>
-                    </Link>
+                    </div> // Changed Link wrapper to div to avoid nested Links
                   ))}
                 </div>
 
