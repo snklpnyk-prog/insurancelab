@@ -317,24 +317,28 @@ export default function Home() {
                 title: "Home Insurance",
                 desc: "Protect your sanctuary with comprehensive coverage against damage and theft.",
                 image: serviceHome,
+                link: "/services/home-insurance",
               },
               {
                 icon: Activity,
                 title: "Life Insurance",
                 desc: "Secure your family's financial future with our flexible term and whole life plans.",
                 image: serviceHealth,
+                link: "/services/life-insurance",
               },
               {
                 icon: Briefcase,
                 title: "Business Insurance",
                 desc: "Safeguard your enterprise with liability, property, and employee coverage.",
                 image: serviceBusiness,
+                link: "/services/business-insurance",
               },
               {
                 icon: Car,
                 title: "Car Insurance",
                 desc: "Drive with confidence knowing you're protected against accidents and liabilities.",
                 image: serviceCar,
+                link: "/services/motor-insurance",
               },
             ].map((service, index) => (
               <motion.div
@@ -346,35 +350,38 @@ export default function Home() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border-b-4 border-transparent hover:border-secondary"
                 data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="h-48 overflow-hidden relative">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    data-testid={`img-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  />
-                </div>
+                <Link href={service.link}>
+                  <div className="h-48 overflow-hidden relative cursor-pointer">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      data-testid={`img-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    />
+                  </div>
+                </Link>
                 <div className="p-6">
                   <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-white transition-colors mb-4">
                     <service.icon size={32} />
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
-                    {service.title}
-                  </h3>
+                  <Link href={service.link}>
+                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors cursor-pointer">
+                      {service.title}
+                    </h3>
+                  </Link>
                   <p className="text-slate-500 mb-6 leading-relaxed">
                     {service.desc}
                   </p>
-                  <a
-                    href="https://wa.me/917303177489"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-bold text-primary uppercase group-hover:translate-x-2 transition-transform"
-                    data-testid={`link-service-details-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  >
-                    Know More{" "}
-                    <ArrowRight size={16} className="text-secondary" />
-                  </a>
+                  <Link href={service.link}>
+                    <a
+                      className="flex items-center gap-2 text-sm font-bold text-primary uppercase group-hover:translate-x-2 transition-transform cursor-pointer"
+                      data-testid={`link-service-details-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    >
+                      Know More{" "}
+                      <ArrowRight size={16} className="text-secondary" />
+                    </a>
+                  </Link>
                 </div>
               </motion.div>
             ))}

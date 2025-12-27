@@ -68,53 +68,98 @@ const servicesData: Record<string, any> = {
   "liability-insurance": {
     title: "Liability Insurance",
     subtitle: "Complete Legal & Financial Protection",
-    description: "Liability insurance provides your business with protection against claims resulting from injuries and damage to people and/or property. It covers legal costs and payouts for which the insured party would be found liable.",
+    description:
+      "Liability insurance provides your business with protection against claims resulting from injuries and damage to people and/or property. It covers legal costs and payouts for which the insured party would be found liable.",
     image: liabilityCatImg,
     icon: Shield,
     whyMatters: {
       title: "Why Liability Insurance?",
       highlights: [
-        { title: "Legal Costs", desc: "Covers expensive defense fees.", icon: "⚖️" },
-        { title: "Settlements", desc: "Pays for judgments and settlements.", icon: "💰" },
-        { title: "Peace of Mind", desc: "Operate without fear of litigation.", icon: "🕊️" },
+        {
+          title: "Legal Costs",
+          desc: "Covers expensive defense fees.",
+          icon: "⚖️",
+        },
+        {
+          title: "Settlements",
+          desc: "Pays for judgments and settlements.",
+          icon: "💰",
+        },
+        {
+          title: "Peace of Mind",
+          desc: "Operate without fear of litigation.",
+          icon: "🕊️",
+        },
       ],
       summary: "Don't let a lawsuit bankrupt your business.",
     },
     faqs: [
-      { q: "What types of liability are covered?", a: "We cover General Liability, Professional Indemnity, D&O, Product Liability, and more." },
+      {
+        q: "What types of liability are covered?",
+        a: "We cover General Liability, Professional Indemnity, D&O, Product Liability, and more.",
+      },
     ],
   },
   "property-assets-insurance": {
     title: "Property & Assets Insurance",
     subtitle: "Safeguard Your Physical Capital",
-    description: "Property and Assets Insurance protects your physical business assets—buildings, equipment, inventory, and furniture—against loss or damage from fire, theft, natural disasters, and other risks.",
+    description:
+      "Property and Assets Insurance protects your physical business assets—buildings, equipment, inventory, and furniture—against loss or damage from fire, theft, natural disasters, and other risks.",
     image: propertyCatImg,
     icon: HomeIcon,
     whyMatters: {
       title: "Why Property Insurance?",
       highlights: [
-        { title: "Asset Replacement", desc: "Replaces damaged equipment/buildings.", icon: "🏗️" },
-        { title: "Business Continuity", desc: "Helps you recover quickly after a disaster.", icon: "🔄" },
-        { title: "Comprehensive Cover", desc: "Fire, theft, and breakdown protection.", icon: "🔥" },
+        {
+          title: "Asset Replacement",
+          desc: "Replaces damaged equipment/buildings.",
+          icon: "🏗️",
+        },
+        {
+          title: "Business Continuity",
+          desc: "Helps you recover quickly after a disaster.",
+          icon: "🔄",
+        },
+        {
+          title: "Comprehensive Cover",
+          desc: "Fire, theft, and breakdown protection.",
+          icon: "🔥",
+        },
       ],
       summary: "Protect the foundation of your business.",
     },
     faqs: [
-      { q: "Does it cover machinery?", a: "Yes, specific policies like Machinery Breakdown cover operational equipment." },
+      {
+        q: "Does it cover machinery?",
+        a: "Yes, specific policies like Machinery Breakdown cover operational equipment.",
+      },
     ],
   },
   "engineering-sector-insurance": {
     title: "Engineering Insurance",
     subtitle: "Risks in Construction & Engineering",
-    description: "Specialized insurance solutions for the construction and engineering sectors. Covers projects, contractors, plant and machinery, and third-party liabilities arising during construction/erection.",
+    description:
+      "Specialized insurance solutions for the construction and engineering sectors. Covers projects, contractors, plant and machinery, and third-party liabilities arising during construction/erection.",
     image: engineeringCatImg,
     icon: HardHat,
     whyMatters: {
       title: "Why Engineering Insurance?",
       highlights: [
-        { title: "Project All-Risk", desc: "Covers the entire project lifecycle.", icon: "🚧" },
-        { title: "Equipment Cover", desc: "Protects expensive construction machinery.", icon: "🚜" },
-        { title: "Liability", desc: "Third-party injury/damage at site.", icon: "⚠️" },
+        {
+          title: "Project All-Risk",
+          desc: "Covers the entire project lifecycle.",
+          icon: "🚧",
+        },
+        {
+          title: "Equipment Cover",
+          desc: "Protects expensive construction machinery.",
+          icon: "🚜",
+        },
+        {
+          title: "Liability",
+          desc: "Third-party injury/damage at site.",
+          icon: "⚠️",
+        },
       ],
       summary: "Build safely, we've got you covered.",
     },
@@ -123,15 +168,28 @@ const servicesData: Record<string, any> = {
   "marine-insurance": {
     title: "Marine Insurance",
     subtitle: "Protection for Goods in Transit",
-    description: "Marine Insurance covers the loss or damage of ships, cargo, terminals, and any transport or cargo by which property is transferred, acquired, or held between the points of origin and final destination.",
+    description:
+      "Marine Insurance covers the loss or damage of ships, cargo, terminals, and any transport or cargo by which property is transferred, acquired, or held between the points of origin and final destination.",
     image: marineCatImg,
     icon: Plane,
     whyMatters: {
       title: "Why Marine Insurance?",
       highlights: [
-        { title: "Transit Damage", desc: "Covers goods against damage during travel.", icon: "🚢" },
-        { title: "Global Scope", desc: "International and domestic transit coverage.", icon: "🌍" },
-        { title: "Peace of Mind", desc: "Secure your supply chain logistics.", icon: "📦" },
+        {
+          title: "Transit Damage",
+          desc: "Covers goods against damage during travel.",
+          icon: "🚢",
+        },
+        {
+          title: "Global Scope",
+          desc: "International and domestic transit coverage.",
+          icon: "🌍",
+        },
+        {
+          title: "Peace of Mind",
+          desc: "Secure your supply chain logistics.",
+          icon: "📦",
+        },
       ],
       summary: "Safe journey for your valuable cargo.",
     },
@@ -140,15 +198,28 @@ const servicesData: Record<string, any> = {
   "manpower-employee-insurance": {
     title: "Manpower & Employee Insurance",
     subtitle: "Care for Your Most Valuable Asset",
-    description: "Employee benefits insurance helps you attract and retain talent by providing health, accident, and life coverage. It also ensures statutory compliance like Workmen's Compensation.",
+    description:
+      "Employee benefits insurance helps you attract and retain talent by providing health, accident, and life coverage. It also ensures statutory compliance like Workmen's Compensation.",
     image: manpowerCatImg,
     icon: Users,
     whyMatters: {
       title: "Why Employee Insurance?",
       highlights: [
-        { title: "Talent Retention", desc: "Employees value health & safety benefits.", icon: "🤝" },
-        { title: "Compliance", desc: "Meet legal requirements (e.g., WC Act).", icon: "📜" },
-        { title: "Productivity", desc: "Healthy employees are productive employees.", icon: "📈" },
+        {
+          title: "Talent Retention",
+          desc: "Employees value health & safety benefits.",
+          icon: "🤝",
+        },
+        {
+          title: "Compliance",
+          desc: "Meet legal requirements (e.g., WC Act).",
+          icon: "📜",
+        },
+        {
+          title: "Productivity",
+          desc: "Healthy employees are productive employees.",
+          icon: "📈",
+        },
       ],
       summary: "Invest in your people.",
     },
@@ -157,7 +228,8 @@ const servicesData: Record<string, any> = {
   "directors-and-officers-insurance": {
     title: "Directors & Officers Liability",
     subtitle: "Protect Your Leadership",
-    description: "Directors and Officers (D&O) Liability Insurance protects the personal assets of corporate directors and officers, and their spouses, in the event they are personally sued by employees, vendors, competitors, investors, customers, or other parties, for actual or alleged wrongful acts in managing a company.",
+    description:
+      "Directors and Officers (D&O) Liability Insurance protects the personal assets of corporate directors and officers, and their spouses, in the event they are personally sued by employees, vendors, competitors, investors, customers, or other parties, for actual or alleged wrongful acts in managing a company.",
     image: doImg,
     icon: Shield,
     whyMatters: {
@@ -195,7 +267,8 @@ const servicesData: Record<string, any> = {
   "professional-indemnity-insurance": {
     title: "Professional Indemnity",
     subtitle: "Coverage for Professional Advice",
-    description: "Professional Indemnity (PI) Insurance protects professionals such as architects, doctors, accountants, and consultants against claims of negligence or breach of duty arising from the services they provide.",
+    description:
+      "Professional Indemnity (PI) Insurance protects professionals such as architects, doctors, accountants, and consultants against claims of negligence or breach of duty arising from the services they provide.",
     image: piImg,
     icon: Briefcase,
     whyMatters: {
@@ -233,7 +306,8 @@ const servicesData: Record<string, any> = {
   "commercial-general-liability": {
     title: "Commercial General Liability",
     subtitle: "Comprehensive Third-Party Protection",
-    description: "Commercial General Liability (CGL) insurance protects your business against claims of bodily injury or property damage caused to third parties by your business operations, products, or premises.",
+    description:
+      "Commercial General Liability (CGL) insurance protects your business against claims of bodily injury or property damage caused to third parties by your business operations, products, or premises.",
     image: cglImg,
     icon: Users,
     whyMatters: {
@@ -267,7 +341,8 @@ const servicesData: Record<string, any> = {
   "cyber-risk-insurance": {
     title: "Cyber Risk Insurance",
     subtitle: "Defend Against Digital Threats",
-    description: "In the digital age, Cyber Risk Insurance is crucial. It covers financial losses resulting from data breaches, cyber-attacks, ransomware, and other cyber incidents.",
+    description:
+      "In the digital age, Cyber Risk Insurance is crucial. It covers financial losses resulting from data breaches, cyber-attacks, ransomware, and other cyber incidents.",
     image: cyberImg,
     icon: Zap,
     whyMatters: {
@@ -301,7 +376,8 @@ const servicesData: Record<string, any> = {
   "fire-insurance": {
     title: "Fire Insurance",
     subtitle: "Protect Your Physical Assets",
-    description: "Standard Fire and Special Perils Policy covers your property against loss or damage due to fire, lightning, explosion, floods, storms, and other specified perils.",
+    description:
+      "Standard Fire and Special Perils Policy covers your property against loss or damage due to fire, lightning, explosion, floods, storms, and other specified perils.",
     image: fireImg,
     icon: Zap, // Using Zap (Flame concept)
     whyMatters: {
@@ -335,7 +411,8 @@ const servicesData: Record<string, any> = {
   "marine-cargo-insurance": {
     title: "Marine Cargo Insurance",
     subtitle: "Secure Your Goods in Transit",
-    description: "Marine Cargo Insurance covers loss or damage to goods during transit by sea, air, road, or rail. It is essential for importers, exporters, and logistics companies.",
+    description:
+      "Marine Cargo Insurance covers loss or damage to goods during transit by sea, air, road, or rail. It is essential for importers, exporters, and logistics companies.",
     image: marineImg,
     icon: Plane,
     whyMatters: {
@@ -369,7 +446,8 @@ const servicesData: Record<string, any> = {
   "workmen-compensation": {
     title: "Workmen Compensation",
     subtitle: "Employee Safety Net",
-    description: "Workmen Compensation Insurance provides coverage for medical expenses and wage replacement to employees injured in the course of employment.",
+    description:
+      "Workmen Compensation Insurance provides coverage for medical expenses and wage replacement to employees injured in the course of employment.",
     image: businessImg,
     icon: Users,
     whyMatters: {
@@ -400,10 +478,11 @@ const servicesData: Record<string, any> = {
       },
     ],
   },
-   "product-liability-insurance": {
+  "product-liability-insurance": {
     title: "Product Liability Insurance",
     subtitle: "Consumer Safety Protection",
-    description: "Product Liability Insurance covers the cost of compensating claims for personal injury or property damage arising from products you have sold or supplied.",
+    description:
+      "Product Liability Insurance covers the cost of compensating claims for personal injury or property damage arising from products you have sold or supplied.",
     image: cglImg, // Reusing CGL image
     icon: Shield,
     whyMatters: {
@@ -437,7 +516,8 @@ const servicesData: Record<string, any> = {
   "property-insurance": {
     title: "Property Insurance",
     subtitle: "Comprehensive Asset Coverage",
-    description: "Property insurance provides financial reimbursement to the owner or renter of a structure and its contents in the event of damage or theft.",
+    description:
+      "Property insurance provides financial reimbursement to the owner or renter of a structure and its contents in the event of damage or theft.",
     image: fireImg, // Reusing Fire image
     icon: HomeIcon,
     whyMatters: {
@@ -461,7 +541,8 @@ const servicesData: Record<string, any> = {
   "machinery-breakdown": {
     title: "Machinery Breakdown",
     subtitle: "Operational Continuity",
-    description: "This policy covers financial loss incurred due to the sudden and accidental breakdown of machinery.",
+    description:
+      "This policy covers financial loss incurred due to the sudden and accidental breakdown of machinery.",
     image: businessImg,
     icon: Zap,
     whyMatters: {
@@ -485,7 +566,8 @@ const servicesData: Record<string, any> = {
   "engineering-insurance": {
     title: "Engineering Insurance",
     subtitle: "Project & Equipment Safety",
-    description: "Contractors All Risk (CAR) and Erection All Risk (EAR) policies provide comprehensive protection for construction projects and engineering risks.",
+    description:
+      "Contractors All Risk (CAR) and Erection All Risk (EAR) policies provide comprehensive protection for construction projects and engineering risks.",
     image: businessImg,
     icon: HardHat, // Assuming HardHat is available or use generic
     whyMatters: {
@@ -509,7 +591,8 @@ const servicesData: Record<string, any> = {
   "group-health-insurance": {
     title: "Group Health Insurance",
     subtitle: "Employee Wellness",
-    description: "Provide comprehensive health coverage to your employees and their families.",
+    description:
+      "Provide comprehensive health coverage to your employees and their families.",
     image: healthImg,
     icon: Activity,
     whyMatters: {
@@ -789,7 +872,8 @@ const servicesData: Record<string, any> = {
   "term-insurance": {
     title: "Term Insurance",
     subtitle: "Pure Protection for Your Loved Ones",
-    description: "Secure your family's financial future with high life cover at affordable premiums. Term insurance ensures your dependents are taken care of in your absence.",
+    description:
+      "Secure your family's financial future with high life cover at affordable premiums. Term insurance ensures your dependents are taken care of in your absence.",
     image: termImg,
     icon: Shield,
     whyMatters: {
@@ -827,7 +911,8 @@ const servicesData: Record<string, any> = {
   "personal-accident-insurance": {
     title: "Personal Accident Insurance",
     subtitle: "Protection Against Life's Uncertainties",
-    description: "Accidents can happen anytime. Our personal accident insurance covers death, disability, and income loss due to accidents, ensuring financial stability.",
+    description:
+      "Accidents can happen anytime. Our personal accident insurance covers death, disability, and income loss due to accidents, ensuring financial stability.",
     image: accidentImg,
     icon: Zap,
     whyMatters: {
@@ -865,7 +950,8 @@ const servicesData: Record<string, any> = {
   "pet-insurance": {
     title: "Pet Insurance",
     subtitle: "Care for Your Furry Friends",
-    description: "Pets are family too. Our pet insurance covers veterinary expenses, surgery costs, and third-party liability for your dogs and cats.",
+    description:
+      "Pets are family too. Our pet insurance covers veterinary expenses, surgery costs, and third-party liability for your dogs and cats.",
     image: petImg,
     icon: User, // Using generic user/heart icon as fallback if specific isn't imported, but Heart was used in services.tsx
     whyMatters: {
@@ -902,6 +988,35 @@ const servicesData: Record<string, any> = {
   },
 };
 
+const handleQuoteSubmit = (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const email = formData.get("email");
+  const serviceType = formData.get("serviceType");
+  const query = formData.get("query");
+
+  const message = `
+Hello, I would like to know More About this Insurance.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Service Type: ${serviceType}
+Query: ${query || "N/A"}
+  `;
+
+  const whatsappNumber = "917303177489";
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    message,
+  )}`;
+
+  window.open(whatsappURL, "_blank");
+};
+
 export default function ServiceDetail() {
   const { type } = useParams();
   const service = servicesData[type as string];
@@ -912,10 +1027,13 @@ export default function ServiceDetail() {
     const name = (form.elements.namedItem("name") as HTMLInputElement).value;
     const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const serviceType = (form.elements.namedItem("serviceType") as HTMLInputElement).value || type;
-    const query = (form.elements.namedItem("query") as HTMLTextAreaElement).value;
+    const serviceType =
+      (form.elements.namedItem("serviceType") as HTMLInputElement).value ||
+      type;
+    const query = (form.elements.namedItem("query") as HTMLTextAreaElement)
+      .value;
 
-    const message = `*New Quote Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${serviceType}\n*Query:* ${query}`;
+    const message = `I would like to Know more about this insurance\n\nName: ${name}\n*Phone:* ${phone}\nEmail: ${email}\nService: ${serviceType}\nQuery: ${query}`;
     const whatsappUrl = `https://wa.me/917303177489?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
   };
@@ -966,56 +1084,56 @@ export default function ServiceDetail() {
               <div className="p-3 bg-secondary/20 rounded-xl backdrop-blur-sm">
                 <service.icon size={32} className="text-secondary" />
               </div>
-              <span className="text-secondary font-bold uppercase tracking-widest text-sm">
+              <span className="text-secondary font-bold uppercase tracking-widest text-sm -mt-2">
                 Our Services
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-heading font-extrabold leading-tight mb-4">
+            <h1 className="text-4xl md:text-6xl font-heading font-extrabold leading-tight mb-4 -mt-6">
               {service.title}
             </h1>
             <p className="text-xl text-slate-100 max-w-2xl">
               {service.subtitle}
             </p>
-            
+
             <script type="application/ld+json">
               {JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Service",
-                "name": service.title,
-                "provider": {
+                name: service.title,
+                provider: {
                   "@type": "LocalBusiness",
-                  "name": "Insurance Lab",
-                  "address": {
+                  name: "Insurance Lab",
+                  address: {
                     "@type": "PostalAddress",
-                    "addressLocality": "Indore",
-                    "addressRegion": "Madhya Pradesh",
-                    "addressCountry": "IN"
-                  }
+                    addressLocality: "Indore",
+                    addressRegion: "Madhya Pradesh",
+                    addressCountry: "IN",
+                  },
                 },
-                "areaServed": {
+                areaServed: {
                   "@type": "City",
-                  "name": "Indore"
+                  name: "Indore",
                 },
-                "description": service.description,
-                "offers": {
+                description: service.description,
+                offers: {
                   "@type": "Offer",
-                  "priceCurrency": "INR",
-                  "availability": "https://schema.org/InStock"
-                }
+                  priceCurrency: "INR",
+                  availability: "https://schema.org/InStock",
+                },
               })}
             </script>
             <script type="application/ld+json">
               {JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "mainEntity": service.faqs.map((faq: any) => ({
+                mainEntity: service.faqs.map((faq: any) => ({
                   "@type": "Question",
-                  "name": faq.q,
-                  "acceptedAnswer": {
+                  name: faq.q,
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text": faq.a
-                  }
-                }))
+                    text: faq.a,
+                  },
+                })),
               })}
             </script>
           </motion.div>
@@ -1056,7 +1174,10 @@ export default function ServiceDetail() {
 
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   {service.whyMatters.highlights.map((item: any, i: number) => (
-                    <div key={i} className="text-center p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                    <div
+                      key={i}
+                      className="text-center p-4 rounded-xl hover:bg-slate-50 transition-colors"
+                    >
                       <div className="text-4xl mb-4">{item.icon}</div>
                       <h3 className="font-bold text-lg text-primary mb-2">
                         {item.title}
@@ -1065,7 +1186,7 @@ export default function ServiceDetail() {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="bg-primary/5 rounded-xl p-6 text-center">
                   <p className="font-medium text-primary text-lg">
                     {service.whyMatters.summary}
@@ -1079,10 +1200,10 @@ export default function ServiceDetail() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-2xl font-heading font-bold text-primary mb-6 flex items-center gap-2">
+                {/* <h2 className="text-2xl font-heading font-bold text-primary mb-6 flex items-center gap-2">
                   <HelpCircle className="text-secondary" />
                   {service.title} FAQs
-                </h2>
+                </h2> */}
                 <Accordion type="single" collapsible className="w-full">
                   {service.faqs.map((faq: any, i: number) => (
                     <AccordionItem key={i} value={`item-${i}`}>
@@ -1106,27 +1227,50 @@ export default function ServiceDetail() {
                     Get Quotation
                   </h3>
                   <p className="text-slate-500 mb-6 text-sm">
-                    Fill out the form below and our experts will get back to you with the best plans.
+                    Fill out the form below and our experts will get back to you
+                    with the best plans.
                   </p>
 
                   <form className="space-y-4" onSubmit={handleQuoteSubmit}>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Company Name / Name</label>
-                      <Input name="name" placeholder="Enter your name" className="bg-slate-50" required />
+                      <label className="text-sm font-medium text-slate-700">
+                        Company Name / Name
+                      </label>
+                      <Input
+                        name="name"
+                        placeholder="Enter your name"
+                        className="bg-slate-50"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Phone Number</label>
-                      <Input name="phone" placeholder="Enter your phone number" className="bg-slate-50" required />
+                      <label className="text-sm font-medium text-slate-700">
+                        Phone Number
+                      </label>
+                      <Input
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        className="bg-slate-50"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Email</label>
-                      <Input name="email" placeholder="Enter your email address" className="bg-slate-50" />
+                      <label className="text-sm font-medium text-slate-700">
+                        Email
+                      </label>
+                      <Input
+                        name="email"
+                        placeholder="Enter your email address"
+                        className="bg-slate-50"
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Service Type</label>
+                      <label className="text-sm font-medium text-slate-700">
+                        Service Type
+                      </label>
                       <input type="hidden" name="serviceType" value={type} />
                       <div className="p-3 bg-slate-50 border rounded-md text-slate-700 font-medium capitalize">
                         {service.title}
@@ -1134,21 +1278,36 @@ export default function ServiceDetail() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Query</label>
-                      <Textarea name="query" placeholder="Write your message here" className="bg-slate-50 resize-none" rows={3} />
+                      <label className="text-sm font-medium text-slate-700">
+                        Query
+                      </label>
+                      <Textarea
+                        name="query"
+                        placeholder="Write your message here"
+                        className="bg-slate-50 resize-none"
+                        rows={3}
+                      />
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Verify Code</label>
+                    {/* <div className="space-y-2">
+                      <label className="text-sm font-medium text-slate-700">
+                        Verify Code
+                      </label>
                       <div className="flex gap-3">
-                         <div className="bg-slate-200 px-4 py-2 rounded-md font-mono font-bold tracking-widest select-none">
-                            X7K9
-                         </div>
-                         <Input placeholder="Enter code" className="bg-slate-50" />
+                        <div className="bg-slate-200 px-4 py-2 rounded-md font-mono font-bold tracking-widest select-none">
+                          X7K9
+                        </div>
+                        <Input
+                          placeholder="Enter code"
+                          className="bg-slate-50"
+                        />
                       </div>
-                    </div>
+                    </div> */}
 
-                    <Button className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all">
+                    <Button
+                      type="submit"
+                      className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all"
+                    >
                       Request Quote
                     </Button>
                   </form>
@@ -1156,9 +1315,16 @@ export default function ServiceDetail() {
 
                 <div className="mt-6 bg-[#020a7f] rounded-2xl p-6 text-white text-center">
                   <Phone className="mx-auto mb-4 text-secondary" size={32} />
-                  <h4 className="font-bold text-lg mb-2">Need Immediate Assistance?</h4>
-                  <p className="text-white/70 mb-4 text-sm">Our experts are available 24/7 to help you.</p>
-                  <a href="tel:+917303177489" className="text-xl font-bold text-secondary hover:underline">
+                  <h4 className="font-bold text-lg mb-2">
+                    Need Immediate Assistance?
+                  </h4>
+                  <p className="text-white/70 mb-4 text-sm">
+                    Our experts are available 24/7 to help you.
+                  </p>
+                  <a
+                    href="tel:+917303177489"
+                    className="text-xl font-bold text-secondary hover:underline"
+                  >
                     +91 73031 77489
                   </a>
                 </div>
