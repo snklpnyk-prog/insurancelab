@@ -221,16 +221,10 @@ export default function NRI() {
 
           <div className="bg-white rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto h-[700px]">
             <InlineWidget 
-              url="https://calendly.com/anshul-purohit" 
+              url="https://calendly.com/insurancelabs2" 
               styles={{
                 height: '100%',
                 width: '100%'
-              }}
-              prefill={{
-                email: 'test@example.com',
-                firstName: 'Jon',
-                lastName: 'Snow',
-                name: 'Jon Snow',
               }}
             />
           </div>
