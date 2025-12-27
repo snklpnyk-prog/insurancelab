@@ -307,7 +307,8 @@ const servicesData: Record<string, any> = {
   "term-insurance": {
     title: "Term Insurance",
     subtitle: "Pure Protection for Your Loved Ones",
-    description: "Secure your family's financial future with high life cover at affordable premiums. Term insurance ensures your dependents are taken care of in your absence.",
+    description:
+      "Secure your family's financial future with high life cover at affordable premiums. Term insurance ensures your dependents are taken care of in your absence.",
     image: termImg,
     icon: Shield,
     whyMatters: {
@@ -345,7 +346,8 @@ const servicesData: Record<string, any> = {
   "personal-accident-insurance": {
     title: "Personal Accident Insurance",
     subtitle: "Protection Against Life's Uncertainties",
-    description: "Accidents can happen anytime. Our personal accident insurance covers death, disability, and income loss due to accidents, ensuring financial stability.",
+    description:
+      "Accidents can happen anytime. Our personal accident insurance covers death, disability, and income loss due to accidents, ensuring financial stability.",
     image: accidentImg,
     icon: Zap,
     whyMatters: {
@@ -383,7 +385,8 @@ const servicesData: Record<string, any> = {
   "pet-insurance": {
     title: "Pet Insurance",
     subtitle: "Care for Your Furry Friends",
-    description: "Pets are family too. Our pet insurance covers veterinary expenses, surgery costs, and third-party liability for your dogs and cats.",
+    description:
+      "Pets are family too. Our pet insurance covers veterinary expenses, surgery costs, and third-party liability for your dogs and cats.",
     image: petImg,
     icon: User, // Using generic user/heart icon as fallback if specific isn't imported, but Heart was used in services.tsx
     whyMatters: {
@@ -430,8 +433,11 @@ export default function ServiceDetail() {
     const name = (form.elements.namedItem("name") as HTMLInputElement).value;
     const phone = (form.elements.namedItem("phone") as HTMLInputElement).value;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const serviceType = (form.elements.namedItem("serviceType") as HTMLInputElement).value || type;
-    const query = (form.elements.namedItem("query") as HTMLTextAreaElement).value;
+    const serviceType =
+      (form.elements.namedItem("serviceType") as HTMLInputElement).value ||
+      type;
+    const query = (form.elements.namedItem("query") as HTMLTextAreaElement)
+      .value;
 
     const message = `*New Quote Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Service:* ${serviceType}\n*Query:* ${query}`;
     const whatsappUrl = `https://wa.me/917303177489?text=${encodeURIComponent(message)}`;
@@ -488,52 +494,52 @@ export default function ServiceDetail() {
                 Our Services
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-heading font-extrabold leading-tight mb-4">
+            <h1 className="text-4xl md:text-6xl font-heading font-extrabold leading-tight mb-4 -mt-6">
               {service.title}
             </h1>
             <p className="text-xl text-slate-100 max-w-2xl">
               {service.subtitle}
             </p>
-            
+
             <script type="application/ld+json">
               {JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Service",
-                "name": service.title,
-                "provider": {
+                name: service.title,
+                provider: {
                   "@type": "LocalBusiness",
-                  "name": "Insurance Lab",
-                  "address": {
+                  name: "Insurance Lab",
+                  address: {
                     "@type": "PostalAddress",
-                    "addressLocality": "Indore",
-                    "addressRegion": "Madhya Pradesh",
-                    "addressCountry": "IN"
-                  }
+                    addressLocality: "Indore",
+                    addressRegion: "Madhya Pradesh",
+                    addressCountry: "IN",
+                  },
                 },
-                "areaServed": {
+                areaServed: {
                   "@type": "City",
-                  "name": "Indore"
+                  name: "Indore",
                 },
-                "description": service.description,
-                "offers": {
+                description: service.description,
+                offers: {
                   "@type": "Offer",
-                  "priceCurrency": "INR",
-                  "availability": "https://schema.org/InStock"
-                }
+                  priceCurrency: "INR",
+                  availability: "https://schema.org/InStock",
+                },
               })}
             </script>
             <script type="application/ld+json">
               {JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "mainEntity": service.faqs.map((faq: any) => ({
+                mainEntity: service.faqs.map((faq: any) => ({
                   "@type": "Question",
-                  "name": faq.q,
-                  "acceptedAnswer": {
+                  name: faq.q,
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text": faq.a
-                  }
-                }))
+                    text: faq.a,
+                  },
+                })),
               })}
             </script>
           </motion.div>
@@ -574,7 +580,10 @@ export default function ServiceDetail() {
 
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   {service.whyMatters.highlights.map((item: any, i: number) => (
-                    <div key={i} className="text-center p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                    <div
+                      key={i}
+                      className="text-center p-4 rounded-xl hover:bg-slate-50 transition-colors"
+                    >
                       <div className="text-4xl mb-4">{item.icon}</div>
                       <h3 className="font-bold text-lg text-primary mb-2">
                         {item.title}
@@ -583,7 +592,7 @@ export default function ServiceDetail() {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="bg-primary/5 rounded-xl p-6 text-center">
                   <p className="font-medium text-primary text-lg">
                     {service.whyMatters.summary}
@@ -624,27 +633,50 @@ export default function ServiceDetail() {
                     Get Quotation
                   </h3>
                   <p className="text-slate-500 mb-6 text-sm">
-                    Fill out the form below and our experts will get back to you with the best plans.
+                    Fill out the form below and our experts will get back to you
+                    with the best plans.
                   </p>
 
                   <form className="space-y-4" onSubmit={handleQuoteSubmit}>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Company Name / Name</label>
-                      <Input name="name" placeholder="Enter your name" className="bg-slate-50" required />
+                      <label className="text-sm font-medium text-slate-700">
+                        Company Name / Name
+                      </label>
+                      <Input
+                        name="name"
+                        placeholder="Enter your name"
+                        className="bg-slate-50"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Phone Number</label>
-                      <Input name="phone" placeholder="Enter your phone number" className="bg-slate-50" required />
+                      <label className="text-sm font-medium text-slate-700">
+                        Phone Number
+                      </label>
+                      <Input
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        className="bg-slate-50"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Email</label>
-                      <Input name="email" placeholder="Enter your email address" className="bg-slate-50" />
+                      <label className="text-sm font-medium text-slate-700">
+                        Email
+                      </label>
+                      <Input
+                        name="email"
+                        placeholder="Enter your email address"
+                        className="bg-slate-50"
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Service Type</label>
+                      <label className="text-sm font-medium text-slate-700">
+                        Service Type
+                      </label>
                       <input type="hidden" name="serviceType" value={type} />
                       <div className="p-3 bg-slate-50 border rounded-md text-slate-700 font-medium capitalize">
                         {service.title}
@@ -652,17 +684,29 @@ export default function ServiceDetail() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Query</label>
-                      <Textarea name="query" placeholder="Write your message here" className="bg-slate-50 resize-none" rows={3} />
+                      <label className="text-sm font-medium text-slate-700">
+                        Query
+                      </label>
+                      <Textarea
+                        name="query"
+                        placeholder="Write your message here"
+                        className="bg-slate-50 resize-none"
+                        rows={3}
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-slate-700">Verify Code</label>
+                      <label className="text-sm font-medium text-slate-700">
+                        Verify Code
+                      </label>
                       <div className="flex gap-3">
-                         <div className="bg-slate-200 px-4 py-2 rounded-md font-mono font-bold tracking-widest select-none">
-                            X7K9
-                         </div>
-                         <Input placeholder="Enter code" className="bg-slate-50" />
+                        <div className="bg-slate-200 px-4 py-2 rounded-md font-mono font-bold tracking-widest select-none">
+                          X7K9
+                        </div>
+                        <Input
+                          placeholder="Enter code"
+                          className="bg-slate-50"
+                        />
                       </div>
                     </div>
 
@@ -674,9 +718,16 @@ export default function ServiceDetail() {
 
                 <div className="mt-6 bg-[#020a7f] rounded-2xl p-6 text-white text-center">
                   <Phone className="mx-auto mb-4 text-secondary" size={32} />
-                  <h4 className="font-bold text-lg mb-2">Need Immediate Assistance?</h4>
-                  <p className="text-white/70 mb-4 text-sm">Our experts are available 24/7 to help you.</p>
-                  <a href="tel:+917303177489" className="text-xl font-bold text-secondary hover:underline">
+                  <h4 className="font-bold text-lg mb-2">
+                    Need Immediate Assistance?
+                  </h4>
+                  <p className="text-white/70 mb-4 text-sm">
+                    Our experts are available 24/7 to help you.
+                  </p>
+                  <a
+                    href="tel:+917303177489"
+                    className="text-xl font-bold text-secondary hover:underline"
+                  >
                     +91 73031 77489
                   </a>
                 </div>
