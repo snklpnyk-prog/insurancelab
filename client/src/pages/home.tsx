@@ -54,6 +54,9 @@ import serviceCar from "@assets/generated_images/carinsurance.jpg";
 import personalinsurance from "@assets/generated_images/insurance_four.avif";
 import businessinsurance from "@assets/generated_images/businessinsurance.jpg";
 import investment from "@assets/generated_images/investment-5318530_1280.jpg";
+import useEmblaCarousel from "embla-carousel-react";
+import { blogPosts } from "@/data/blogs";
+
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -73,8 +76,11 @@ const whatsappNumber = "+917303177489";
 const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^\d]/g, "")}?text=Hello%20Insurance%20Lab,%20I%20would%20like%20to%20know%20more%20about%20your%20services.`;
 
 export default function Home() {
-  const [blogSlideIndex, setBlogSlideIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
   const [, setLocation] = useLocation();
+
+  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
+  const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   const shareOnSocial = (platform: string, title: string, url: string) => {
     let shareUrl = "";
@@ -827,64 +833,46 @@ export default function Home() {
             <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
           </div>
 
-          <div className="relative">
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-out"
-                style={{
-                  transform: `translateX(-${blogSlideIndex * 100}%)`,
-                }}
-              >
-                {[
-                  {
-                    id: 1,
-                    img: blog1,
-                    title: "10 Tips to Lower Your Home Insurance Premium",
-                    date: "Dec 12, 2025",
-                  },
-                  {
-                    id: 2,
-                    img: blog2,
-                    title: "Why Business Liability Coverage is Essential",
-                    date: "Dec 10, 2025",
-                  },
-                  {
-                    id: 3,
-                    img: blog3,
-                    title: "Understanding the Claims Process After an Accident",
-                    date: "Dec 05, 2025",
-                  },
-                ].map((post) => (
+          <div className="relative group">
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex -ml-4">
+                {blogPosts.map((post) => (
                   <div
                     key={post.id}
-                    className="w-full md:w-1/2 lg:w-1/3 px-2 flex-shrink-0"
+                    className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-4"
                   >
                     <div
-                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group h-full"
+                      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group h-full flex flex-col"
                       data-testid={`card-blog-${post.id}`}
                     >
-                      <div className="h-56 overflow-hidden relative">
+                      <div className="h-56 overflow-hidden relative flex-shrink-0">
                         <img
-                          src={post.img}
+                          src={post.image}
                           alt={post.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           data-testid={`img-blog-${post.id}`}
                         />
+                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
+                          {post.category}
+                        </div>
                       </div>
-                      <div className="p-6">
+                      <div className="p-6 flex flex-col flex-grow">
                         <div className="flex items-center gap-4 text-xs text-slate-400 mb-3">
                           <span className="flex items-center gap-1">
-                            <Users size={12} /> Admin
+                            <Users size={12} /> {post.author}
                           </span>
                           <span className="flex items-center gap-1">
                             <Clock size={12} /> {post.date}
                           </span>
                         </div>
-                        <h3 className="text-lg font-bold text-primary mb-4 leading-snug">
+                        <h3 className="text-lg font-bold text-primary mb-4 leading-snug line-clamp-2">
                           {post.title}
                         </h3>
-                        <div className="flex items-center justify-between">
-                          <Link href={`/blog/${post.id}`}>
+                        <p className="text-sm text-slate-500 mb-6 line-clamp-3 flex-grow">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between mt-auto">
+                          <Link href={`/blog/${post.slug}`}>
                             <a
                               className="inline-flex items-center gap-1 text-sm font-bold text-secondary hover:underline"
                               data-testid={`link-read-more-blog-${post.id}`}
@@ -955,41 +943,28 @@ export default function Home() {
             </div>
 
             {/* Slider Controls */}
-            <div className="flex justify-center gap-4 mt-8">
-              <button
-                onClick={() =>
-                  setBlogSlideIndex(Math.max(0, blogSlideIndex - 1))
-                }
-                disabled={blogSlideIndex === 0}
-                className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                data-testid="button-blog-prev"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <div className="flex items-center gap-2">
-                {[0, 1, 2].map((i) => (
-                  <button
-                    key={i}
-                    onClick={() => setBlogSlideIndex(i)}
-                    className={cn(
-                      "w-3 h-3 rounded-full transition-colors",
-                      blogSlideIndex === i ? "bg-secondary" : "bg-slate-300",
-                    )}
-                    data-testid={`button-blog-dot-${i}`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={() =>
-                  setBlogSlideIndex(Math.min(2, blogSlideIndex + 1))
-                }
-                disabled={blogSlideIndex === 2}
-                className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                data-testid="button-blog-next"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
+            <button
+              onClick={scrollPrev}
+              className="absolute top-1/2 -left-4 md:-left-6 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg text-primary flex items-center justify-center hover:bg-secondary hover:text-white transition-all z-10 opacity-0 group-hover:opacity-100"
+              data-testid="button-blog-prev"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="absolute top-1/2 -right-4 md:-right-6 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg text-primary flex items-center justify-center hover:bg-secondary hover:text-white transition-all z-10 opacity-0 group-hover:opacity-100"
+              data-testid="button-blog-next"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link href="/blog">
+              <Button className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-bold transition-all">
+                View All Articles
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
