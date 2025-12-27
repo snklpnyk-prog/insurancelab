@@ -295,7 +295,7 @@ export default function Services() {
               <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
                 <div className="space-y-8 order-2 lg:order-1">
                   {businessServices.map((group, i) => (
-                    <Link key={i} href="/services/business-insurance">
+                    <div key={i}>
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
