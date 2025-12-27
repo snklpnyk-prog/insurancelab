@@ -82,6 +82,7 @@ export default function Services() {
   const businessServices = [
     {
       category: "Liability",
+      link: "/services/liability-insurance",
       desc: "Protect your business against third-party claims, errors, and managerial risks.",
       items: [
         {
@@ -118,6 +119,7 @@ export default function Services() {
     },
     {
       category: "Property & Assets",
+      link: "/services/property-assets-insurance",
       desc: "Insure buildings, contents, machinery and keep operations running after loss.",
       items: [
         {
@@ -133,7 +135,7 @@ export default function Services() {
         {
           name: "Fire Loss of Profit",
           detail: "Insures income loss due to fire damage.",
-          link: "/services/fire-insurance", // Using same as fire for now or create distinct if needed
+          link: "/services/fire-insurance",
         },
         {
           name: "Machinery Breakdown",
@@ -143,12 +145,13 @@ export default function Services() {
         {
           name: "Office Package",
           detail: "Comprehensive protection for office and employees.",
-          link: "/services/business-insurance", // Generic fallback
+          link: "/services/business-insurance", // Still generic fallback if no specific page
         },
       ],
     },
     {
       category: "Engineering",
+      link: "/services/engineering-sector-insurance",
       desc: "Covers engineering projects, equipment and risks.",
       items: [
         {
@@ -160,6 +163,7 @@ export default function Services() {
     },
     {
       category: "Marine",
+      link: "/services/marine-insurance",
       desc: "Covers goods while they move—road, air, or sea.",
       items: [
         {
@@ -171,6 +175,7 @@ export default function Services() {
     },
     {
       category: "Manpower & Employee",
+      link: "/services/manpower-employee-insurance",
       desc: "Protect your workforce with employee-focused insurance.",
       items: [
         {
@@ -181,7 +186,7 @@ export default function Services() {
         {
           name: "Group Personal Accident",
           detail: "Coverage for accidental injuries to employees.",
-          link: "/services/personal-accident-insurance", // Reusing personal accident
+          link: "/services/personal-accident-insurance",
         },
       ],
     },
@@ -300,16 +305,18 @@ export default function Services() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 cursor-pointer hover:shadow-md transition-shadow mb-8"
+                        className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow mb-8"
                       >
-                        <h3 className="text-2xl font-bold text-primary mb-2 flex items-center gap-3">
-                          {i === 0 && <Shield className="text-secondary" />}
-                          {i === 1 && <Building2 className="text-secondary" />}
-                          {i === 2 && <HardHat className="text-secondary" />}
-                          {i === 3 && <Anchor className="text-secondary" />}
-                          {i === 4 && <Users className="text-secondary" />}
-                          {group.category}
-                        </h3>
+                        <Link href={group.link || "#"}>
+                          <h3 className="text-2xl font-bold text-primary mb-2 flex items-center gap-3 cursor-pointer hover:text-secondary transition-colors">
+                            {i === 0 && <Shield className="text-secondary" />}
+                            {i === 1 && <Building2 className="text-secondary" />}
+                            {i === 2 && <HardHat className="text-secondary" />}
+                            {i === 3 && <Anchor className="text-secondary" />}
+                            {i === 4 && <Users className="text-secondary" />}
+                            {group.category}
+                          </h3>
+                        </Link>
                         <p className="text-slate-600 mb-6">{group.desc}</p>
 
                         <div className="grid md:grid-cols-2 gap-4">

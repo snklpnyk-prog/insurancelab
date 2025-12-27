@@ -55,8 +55,105 @@ import cyberImg from "@assets/generated_images/cyber_risk_insurance_concept.png"
 import fireImg from "@assets/generated_images/fire_insurance_concept.png";
 import marineImg from "@assets/generated_images/marine_cargo_insurance_concept.png";
 
+import liabilityCatImg from "@assets/generated_images/liability_insurance_category_concept.png";
+import propertyCatImg from "@assets/generated_images/property_and_assets_insurance_category_concept.png";
+import engineeringCatImg from "@assets/generated_images/engineering_insurance_category_concept.png";
+import manpowerCatImg from "@assets/generated_images/manpower_and_employee_insurance_category_concept.png";
+// Reusing marine image for category as it fits well
+const marineCatImg = marineImg;
+
 // Data Configuration
 const servicesData: Record<string, any> = {
+  // --- Category Pages ---
+  "liability-insurance": {
+    title: "Liability Insurance",
+    subtitle: "Complete Legal & Financial Protection",
+    description: "Liability insurance provides your business with protection against claims resulting from injuries and damage to people and/or property. It covers legal costs and payouts for which the insured party would be found liable.",
+    image: liabilityCatImg,
+    icon: Shield,
+    whyMatters: {
+      title: "Why Liability Insurance?",
+      highlights: [
+        { title: "Legal Costs", desc: "Covers expensive defense fees.", icon: "⚖️" },
+        { title: "Settlements", desc: "Pays for judgments and settlements.", icon: "💰" },
+        { title: "Peace of Mind", desc: "Operate without fear of litigation.", icon: "🕊️" },
+      ],
+      summary: "Don't let a lawsuit bankrupt your business.",
+    },
+    faqs: [
+      { q: "What types of liability are covered?", a: "We cover General Liability, Professional Indemnity, D&O, Product Liability, and more." },
+    ],
+  },
+  "property-assets-insurance": {
+    title: "Property & Assets Insurance",
+    subtitle: "Safeguard Your Physical Capital",
+    description: "Property and Assets Insurance protects your physical business assets—buildings, equipment, inventory, and furniture—against loss or damage from fire, theft, natural disasters, and other risks.",
+    image: propertyCatImg,
+    icon: HomeIcon,
+    whyMatters: {
+      title: "Why Property Insurance?",
+      highlights: [
+        { title: "Asset Replacement", desc: "Replaces damaged equipment/buildings.", icon: "🏗️" },
+        { title: "Business Continuity", desc: "Helps you recover quickly after a disaster.", icon: "🔄" },
+        { title: "Comprehensive Cover", desc: "Fire, theft, and breakdown protection.", icon: "🔥" },
+      ],
+      summary: "Protect the foundation of your business.",
+    },
+    faqs: [
+      { q: "Does it cover machinery?", a: "Yes, specific policies like Machinery Breakdown cover operational equipment." },
+    ],
+  },
+  "engineering-sector-insurance": {
+    title: "Engineering Insurance",
+    subtitle: "Risks in Construction & Engineering",
+    description: "Specialized insurance solutions for the construction and engineering sectors. Covers projects, contractors, plant and machinery, and third-party liabilities arising during construction/erection.",
+    image: engineeringCatImg,
+    icon: HardHat,
+    whyMatters: {
+      title: "Why Engineering Insurance?",
+      highlights: [
+        { title: "Project All-Risk", desc: "Covers the entire project lifecycle.", icon: "🚧" },
+        { title: "Equipment Cover", desc: "Protects expensive construction machinery.", icon: "🚜" },
+        { title: "Liability", desc: "Third-party injury/damage at site.", icon: "⚠️" },
+      ],
+      summary: "Build safely, we've got you covered.",
+    },
+    faqs: [],
+  },
+  "marine-insurance": {
+    title: "Marine Insurance",
+    subtitle: "Protection for Goods in Transit",
+    description: "Marine Insurance covers the loss or damage of ships, cargo, terminals, and any transport or cargo by which property is transferred, acquired, or held between the points of origin and final destination.",
+    image: marineCatImg,
+    icon: Plane,
+    whyMatters: {
+      title: "Why Marine Insurance?",
+      highlights: [
+        { title: "Transit Damage", desc: "Covers goods against damage during travel.", icon: "🚢" },
+        { title: "Global Scope", desc: "International and domestic transit coverage.", icon: "🌍" },
+        { title: "Peace of Mind", desc: "Secure your supply chain logistics.", icon: "📦" },
+      ],
+      summary: "Safe journey for your valuable cargo.",
+    },
+    faqs: [],
+  },
+  "manpower-employee-insurance": {
+    title: "Manpower & Employee Insurance",
+    subtitle: "Care for Your Most Valuable Asset",
+    description: "Employee benefits insurance helps you attract and retain talent by providing health, accident, and life coverage. It also ensures statutory compliance like Workmen's Compensation.",
+    image: manpowerCatImg,
+    icon: Users,
+    whyMatters: {
+      title: "Why Employee Insurance?",
+      highlights: [
+        { title: "Talent Retention", desc: "Employees value health & safety benefits.", icon: "🤝" },
+        { title: "Compliance", desc: "Meet legal requirements (e.g., WC Act).", icon: "📜" },
+        { title: "Productivity", desc: "Healthy employees are productive employees.", icon: "📈" },
+      ],
+      summary: "Invest in your people.",
+    },
+    faqs: [],
+  },
   "directors-and-officers-insurance": {
     title: "Directors & Officers Liability",
     subtitle: "Protect Your Leadership",
